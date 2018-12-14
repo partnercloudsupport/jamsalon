@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "56249006857",
+    "firebase_url": "https://jam-salon.firebaseio.com",
+    "project_id": "jam-salon",
+    "storage_bucket": "jam-salon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56249006857:android:58f544067c5d4f32",
+        "android_client_info": {
+          "package_name": "com.jamstation.jamsalon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56249006857-e73rlqv3qhp7ebtk5a0p3j486uv7kp9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYp2I4-1_4ONMwk8Z5MgfjritWKqLi7lE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

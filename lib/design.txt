@@ -1,0 +1,25 @@
+Salon
+	key
+	name
+	location
+	isFavorite
+	isOpen
+	storeHours
+	color
+
+CheckIn
+	key
+	token
+	createdOn
+	queuePosition
+	status
+	startTime
+	endTime
+
+User
+	favorites[]
+		salonKey1
+		salonKey2
+	superFavorite
+		salonKey
+	checkIns[]
