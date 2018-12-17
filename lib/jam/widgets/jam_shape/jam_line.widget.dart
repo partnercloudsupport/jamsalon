@@ -7,9 +7,9 @@ class JamLine extends StatelessWidget {
   final BorderStyle style;
 
   JamLine({
-    @required this.length,
+    this.length = double.infinity,
     this.thickness = 1.0,
-    this.color = Colors.black,
+    this.color,
     this.style = BorderStyle.solid,
   });
 
@@ -21,7 +21,7 @@ class JamLine extends StatelessWidget {
         border: Border(
           top: BorderSide(
             width: this.thickness,
-            color: this.color,
+            color: this.color ?? Theme.of(context).primaryColor,
             style: this.style,
           ),
         ),

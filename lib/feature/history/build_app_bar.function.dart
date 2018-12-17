@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 AppBar buildAppBar() {
   return AppBar(
     elevation: 0.0,
-    backgroundColor: Colors.white,
     brightness: Brightness.light,
     title: Text(
       'Check In History',
       style: TextStyle(color: Colors.black87),
     ),
-    // centerTitle: true,
+    centerTitle: true,
     actions: <Widget>[
       IconButton(
         color: Colors.black,

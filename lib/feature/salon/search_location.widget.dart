@@ -12,25 +12,29 @@ class SearchLocation extends StatelessWidget {
           SizedBox(height: 10.0),
           MultilineAssistiveText(
             width: 200.0,
-            texts: [
-              'GPS is off.',
-              'Showing salons 5 kms around',
+            textWidgets: [
+              Text('GPS is off.'),
+              Text('Location set to New Perungulathur, Chennai'),
+              Text('Showing 12 salons within 5 km radius'),
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(left: 30.0, top: 10.0),
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-            constraints: BoxConstraints.loose(Size.fromWidth(200.0)),
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColorDark,
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-            child: Text(
-              'New Perungulathur, Chennai',
-              style: Theme.of(context)
-                  .textTheme
-                  .caption
-                  .copyWith(fontStyle: FontStyle.italic),
+          Opacity(
+            opacity: 0.0,
+            child: Container(
+              margin: EdgeInsets.only(left: 30.0, top: 10.0),
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              constraints: BoxConstraints.loose(Size.fromWidth(200.0)),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColorDark,
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Text(
+                'New Perungulathur, Chennai',
+                style: Theme.of(context)
+                    .textTheme
+                    .caption
+                    .copyWith(fontStyle: FontStyle.italic),
+              ),
             ),
           ),
         ],

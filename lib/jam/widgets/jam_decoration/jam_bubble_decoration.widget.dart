@@ -12,7 +12,7 @@ class JamBubbleDecoration extends StatelessWidget {
         children: <Widget>[
           this.child,
           Positioned(
-            top: 270.0,
+            top: 140.0,
             left: 40.0,
             width: 50.0,
             height: 50.0,
@@ -24,8 +24,8 @@ class JamBubbleDecoration extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 140.0,
-            left: 330.0,
+            top: 30.0,
+            left: 320.0,
             width: 20.0,
             height: 20.0,
             child: DecoratedBox(

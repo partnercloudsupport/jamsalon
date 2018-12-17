@@ -9,6 +9,7 @@ class SalonListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('-BUILDING- SalonListItem');
     return Card(
       color: this.salon.color,
       shape: RoundedRectangleBorder(
@@ -26,7 +27,7 @@ class SalonListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ConditionallyShowContainer(
-                    show: this.salon.isOpen,
+                    condition: this.salon.isOpen,
                     child: Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
@@ -75,7 +76,7 @@ class SalonListItem extends StatelessWidget {
               ),
             ),
             ConditionallyShowContainer(
-              show: true,
+              condition: true,
               child: Padding(
                 padding: EdgeInsets.only(top: 10.0),
                 child: Icon(

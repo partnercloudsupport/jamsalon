@@ -12,19 +12,12 @@ class SalonList extends StatelessWidget {
   Widget build(BuildContext context) {
     print('-BUILDING- SalonList');
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            height: 360,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [SearchOptions()]..addAll(
-                  this.list.map((item) => SalonListItem(item)).toList(),
-                ),
-            ),
+      height: 360,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [SearchOptions()]..addAll(
+            this.list.map((item) => SalonListItem(item)).toList(),
           ),
-        ],
       ),
     );
   }

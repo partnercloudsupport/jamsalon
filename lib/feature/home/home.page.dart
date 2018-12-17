@@ -8,14 +8,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('-BUILDING- HomePage');
     return Scaffold(
       bottomNavigationBar: buildBottomNavigationBar(context, 0),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            expandedHeight: 400.0,
+            expandedHeight: 330.0,
             pinned: true,
-            backgroundColor: Colors.transparent,
             elevation: 0.0,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
@@ -25,9 +25,11 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline,
               ),
               background: Container(
+                padding: EdgeInsets.only(top: 80.0),
                 height: 200.0,
                 child: JamBubbleDecoration(
-                  child: Center(
+                  child: Container(
+                    alignment: Alignment.topCenter,
                     child: JamProfilePhoto(),
                   ),
                 ),
@@ -141,7 +143,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 100.0)
+                SizedBox(height: 300.0)
               ],
             ),
           )

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/feature/salon/store/salon.actions.dart';
 import 'package:jamsalon/feature/salon/store/salon.state.dart';
+import 'package:jamsalon/feature/salon/store/salon.actions.dart';
 import 'package:jamsalon/shared/model/salon.model.dart';
 
-SalonState salonReducer(SalonState state, action) {
+SalonState salonReducer(SalonState state, dynamic action) {
   if (action is SearchSalonsAction) {
     return SalonState(list: [
       Salon(

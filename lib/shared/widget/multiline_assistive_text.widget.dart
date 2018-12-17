@@ -2,34 +2,34 @@ import 'package:jamsalon/shared/widget/conditionally_render_container.widget.dar
 import 'package:flutter/material.dart';
 
 class MultilineAssistiveText extends StatelessWidget {
-  final List<String> texts;
+  final List<Text> textWidgets;
   final double spaceBetweenTexts;
   final double spaceAfterBullets;
   final Color color;
   final double width;
   final bool showLines;
-  final bool highlightLastItem;
+  // final bool highlightLastItem;
 
   MultilineAssistiveText({
-    this.texts,
+    this.textWidgets = const [],
     this.spaceBetweenTexts = 10.0,
     this.spaceAfterBullets = 20.0,
     this.color = Colors.black45,
     this.width = double.infinity,
     this.showLines = false,
-    this.highlightLastItem = false,
+    // this.highlightLastItem = false,
   });
 
   @override
   Widget build(BuildContext context) {
     int index = -1;
-    int lastIndex = this.texts.length - 1;
+    int lastIndex = this.textWidgets.length - 1;
 
     return Container(
       constraints: BoxConstraints.loose(Size.fromWidth(this.width)),
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: this.texts.map((text) {
+          children: this.textWidgets.map((textWidget) {
             ++index;
             bool isLastItem = (index == lastIndex);
             return Column(
@@ -37,24 +37,15 @@ class MultilineAssistiveText extends StatelessWidget {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    this.buildBullet(
-                        fill: this.highlightLastItem && isLastItem),
+                    // this.buildBullet(
+                    //     fill: this.highlightLastItem && isLastItem),
+                    this.buildBullet(),
                     SizedBox(width: this.spaceAfterBullets),
-                    Expanded(
-                      child: Text(
-                        text,
-                        style: TextStyle(
-                          color: this.color,
-                          fontWeight: this.highlightLastItem && isLastItem
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                        ),
-                      ),
-                    ),
+                    Expanded(child: textWidget),
                   ],
                 ),
                 ConditionallyRenderContainer(
-                  show: !isLastItem,
+                  condition: !isLastItem,
                   child: this.showLines
                       ? this.buildLine()
                       : SizedBox(height: this.spaceBetweenTexts),

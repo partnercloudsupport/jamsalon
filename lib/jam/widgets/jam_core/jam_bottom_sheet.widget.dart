@@ -15,9 +15,7 @@ class JamBottomSheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: this.children.map((child) {
           return FlatButton(
-            onPressed: () {
-              print('hello');
-            },
+            onPressed: () {},
             child: ListTile(
               leading: child.leading,
               title: Text(
