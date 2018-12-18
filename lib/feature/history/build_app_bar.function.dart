@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar({BuildContext context}) {
   return AppBar(
     elevation: 0.0,
-    brightness: Brightness.light,
     title: Text(
       'Check In History',
       style: TextStyle(color: Colors.black87),

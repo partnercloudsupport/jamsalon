@@ -9,17 +9,12 @@ class CurrentLocationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: RaisedButton(
+      child: RaisedButton.icon(
+        color: Theme.of(context).accentColor,
+        colorBrightness: Brightness.dark,
         onPressed: this.onPressed,
-        textColor: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.gps_fixed, size: 18.0),
-            SizedBox(width: 15.0),
-            Text('Use current location'),
-          ],
-        ),
+        icon: Icon(Icons.gps_fixed, size: 16.0),
+        label: Text('Use current location'),
       ),
     );
   }

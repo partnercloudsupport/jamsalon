@@ -7,8 +7,8 @@ import 'package:jamsalon/feature/search_location/store/search_location.actions.d
 class RecentListViewModel {
   final List<Location> list;
   final bool isExpanded;
-  Function() getList;
-  Function() expandList;
+  final Function() getList;
+  final Function() expandList;
 
   RecentListViewModel({
     @required this.list,

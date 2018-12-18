@@ -1,10 +1,11 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:jamsalon/core/config/theme.config.dart';
 
-void configureSystem() {
+void configureSystemUi() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Color.fromRGBO(233, 236, 239, 1.0),
+      statusBarColor: appTheme.backgroundColor,
       systemNavigationBarColor: Colors.white,
     ),
   );

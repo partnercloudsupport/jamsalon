@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:jamsalon/core/config/ui.config.dart';
 import 'package:redux/redux.dart';
+import 'package:jamsalon/jam/jam.dart';
 import 'package:jamsalon/shared/store/app.store.dart';
-import 'package:jamsalon/shared/widget/conditionally_render_container.widget.dart';
 import 'package:jamsalon/feature/search_location/store/search_location.store.dart';
 
 class RecentList extends StatelessWidget {
@@ -15,9 +16,9 @@ class RecentList extends StatelessWidget {
       builder: (BuildContext context, RecentListViewModel vm) => Column(
             children: <Widget>[
               ListTile(
-                leading: Opacity(opacity: 0.0, child: Icon(Icons.bookmark)),
+                leading: Text(''),
                 title: Text(
-                  'SAVED ADDRESSES',
+                  SEARCH_LOCATION_RECENT_LIST_CAPTION,
                   style: Theme.of(context).textTheme.body2.copyWith(
                         color: Colors.blueAccent,
                         fontWeight: FontWeight.bold,
@@ -30,9 +31,7 @@ class RecentList extends StatelessWidget {
                       (item) => Column(
                             children: <Widget>[
                               ListTile(
-                                leading: Icon(item.name == 'Home'
-                                    ? Icons.home
-                                    : Icons.location_on),
+                                leading: Icon(Icons.history),
                                 title: Text(item.name),
                                 subtitle: Text(item.address),
                               ),
@@ -49,7 +48,7 @@ class RecentList extends StatelessWidget {
               ConditionallyRenderContainer(
                 condition: !vm.isExpanded,
                 child: ListTile(
-                  leading: Opacity(opacity: 0.0, child: Icon(Icons.bookmark)),
+                  leading: Text(''),
                   onTap: vm.expandList,
                   title: Row(
                     children: <Widget>[

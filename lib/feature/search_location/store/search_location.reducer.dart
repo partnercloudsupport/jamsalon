@@ -51,7 +51,12 @@ SearchLocationState searchLocationReducer(
   } else if (action is ExpandRecentListAction) {
     return state.copyWith(isRecentListExpanded: true);
   } else if (action is GetPredictionListAction) {
-    return state;
+    return state.copyWith(
+      searchKeyword: action.keyword,
+      predictionList: action.keyword.length >= 3
+          ? List.from(state.recentList)
+          : List.unmodifiable(<Location>[]),
+    );
   } else {
     return state;
   }

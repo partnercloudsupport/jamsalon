@@ -9,7 +9,7 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context: context),
       bottomNavigationBar: buildBottomNavigationBar(context, 2),
       body: CheckInList(),
     );

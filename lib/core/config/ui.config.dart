@@ -1,0 +1,6 @@
+const SEARCH_LOCATION_HINT_TEXT =
+    'Please type atleast 3 letters to start searching.';
+
+const SEARCH_LOCATION_SAVED_LIST_CAPTION = 'SAVED ADDRESSES';
+
+const SEARCH_LOCATION_RECENT_LIST_CAPTION = 'RECENT_SEARCHES';

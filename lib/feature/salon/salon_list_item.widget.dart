@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jamsalon/shared/model/salon.model.dart';
-import 'package:jamsalon/shared/widget/conditionally_show_container.widget.dart';
+import 'package:jamsalon/jam/jam.dart';
 
 class SalonListItem extends StatelessWidget {
   final Salon salon;

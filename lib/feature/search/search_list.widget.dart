@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/shared/widget/conditionally_switch_container.widget.dart';
+import 'package:jamsalon/jam/jam.dart';
 import 'package:jamsalon/feature/search/search_list_item.widget.dart';
 import 'package:jamsalon/feature/search/search_list_first_item.widget.dart';
 

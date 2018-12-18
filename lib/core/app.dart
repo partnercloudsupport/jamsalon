@@ -13,6 +13,6 @@ class App {
   static Store<AppState> get store => AppStore.initialize();
 
   static void initialize() {
-    configureSystem();
+    configureSystemUi();
   }
 }
