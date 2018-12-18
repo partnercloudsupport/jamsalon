@@ -5,7 +5,7 @@ import 'package:jamsalon/jam/jam.dart';
 class SalonListItem extends StatelessWidget {
   final Salon salon;
 
-  SalonListItem(this.salon);
+  const SalonListItem({Key key, this.salon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class SalonListItem extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  ConditionallyShowContainer(
+                  JamConditionallyShowContainer(
                     condition: this.salon.isOpen,
                     child: Container(
                       padding:
@@ -75,7 +75,7 @@ class SalonListItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            ConditionallyShowContainer(
+            JamConditionallyShowContainer(
               condition: true,
               child: Padding(
                 padding: EdgeInsets.only(top: 10.0),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SalonSearchBar extends StatelessWidget {
   final Function searchFn;
-  SalonSearchBar(this.searchFn);
+  const SalonSearchBar({Key key, this.searchFn}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

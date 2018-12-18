@@ -6,23 +6,14 @@ import 'package:jamsalon/feature/search_location/store/search_location.actions.d
 
 class RecentListViewModel {
   final List<Location> list;
-  final bool isExpanded;
-  final Function() getList;
-  final Function() expandList;
+  final Function() fetchList;
 
-  RecentListViewModel({
+  const RecentListViewModel({
     @required this.list,
-    @required this.isExpanded,
-    @required this.getList,
-    @required this.expandList,
+    @required this.fetchList,
   });
 
   RecentListViewModel.fromStore(Store<AppState> store)
-      : list = store.state.searchLocationState.recentList.length <= 3 ||
-                store.state.searchLocationState.isRecentListExpanded
-            ? store.state.searchLocationState.recentList
-            : store.state.searchLocationState.recentList.sublist(0, 3),
-        isExpanded = store.state.searchLocationState.isRecentListExpanded,
-        getList = (() => store.dispatch(GetRecentListAction())),
-        expandList = (() => store.dispatch(ExpandRecentListAction()));
+      : list = store.state.searchLocationState.recentList,
+        fetchList = (() => store.dispatch(FetchRecentListAction()));
 }

@@ -22,7 +22,7 @@ class SearchList extends StatelessWidget {
         bool newGroup =
             (previousItem == null) || (previousItem['group'] != item['group']);
         previousItem = item;
-        return ConditionallySwitchContainer(
+        return JamConditionallySwitchContainer(
           condition: newGroup,
           child1: SearchListFirstItem(item: item['item'], group: item['group']),
           child2: SearchListItem(item: item['item']),

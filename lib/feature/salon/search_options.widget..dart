@@ -3,7 +3,7 @@ import 'package:jamsalon/feature/salon/search_location.widget.dart';
 import 'package:jamsalon/jam/jam.dart';
 
 class SearchOptions extends StatelessWidget {
-  SearchOptions();
+  const SearchOptions({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

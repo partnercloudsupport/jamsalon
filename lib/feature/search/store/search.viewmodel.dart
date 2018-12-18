@@ -6,7 +6,7 @@ class SearchViewModel {
   final String keyword;
   final Function(String keyword) searchAction;
 
-  SearchViewModel({
+  const SearchViewModel({
     this.keyword,
     this.searchAction,
   });

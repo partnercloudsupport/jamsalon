@@ -7,7 +7,8 @@ import 'package:jamsalon/shared/store/app.state.dart';
 import 'package:jamsalon/feature/search/store/search.store.dart';
 
 class SearchPage extends StatefulWidget {
-  SearchPage();
+  const SearchPage({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _SearchPageState();

@@ -10,7 +10,8 @@ class MultilineAssistiveText extends StatelessWidget {
   final bool showLines;
   // final bool highlightLastItem;
 
-  MultilineAssistiveText({
+  const MultilineAssistiveText({
+    Key key,
     this.textWidgets = const [],
     this.spaceBetweenTexts = 10.0,
     this.spaceAfterBullets = 20.0,
@@ -18,7 +19,7 @@ class MultilineAssistiveText extends StatelessWidget {
     this.width = double.infinity,
     this.showLines = false,
     // this.highlightLastItem = false,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class MultilineAssistiveText extends StatelessWidget {
                     Expanded(child: textWidget),
                   ],
                 ),
-                ConditionallyRenderContainer(
+                JamConditionallyRenderContainer(
                   condition: !isLastItem,
                   child: this.showLines
                       ? this.buildLine()

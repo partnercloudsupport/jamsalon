@@ -6,7 +6,7 @@ class SearchLocationViewModel {
   final bool hasUserStartedTyping;
   final bool isKeywordTooShortToSearch;
 
-  SearchLocationViewModel({
+  const SearchLocationViewModel({
     @required this.hasUserStartedTyping,
     @required this.isKeywordTooShortToSearch,
   });

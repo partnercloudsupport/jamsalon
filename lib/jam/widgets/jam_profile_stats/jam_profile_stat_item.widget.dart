@@ -4,7 +4,8 @@ class JamProfileStatItem extends StatelessWidget {
   final String label;
   final String value;
 
-  JamProfileStatItem({this.label, this.value});
+  const JamProfileStatItem({Key key, this.label = '', this.value = ''})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

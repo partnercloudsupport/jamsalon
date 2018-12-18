@@ -1,20 +1,16 @@
-class GetSavedListAction {
-  GetSavedListAction();
+class FetchSavedListAction {
+  const FetchSavedListAction();
 }
 
-class GetRecentListAction {
-  GetRecentListAction();
+class FetchRecentListAction {
+  const FetchRecentListAction();
 }
 
-class ExpandSavedListAction {
-  ExpandSavedListAction();
+class FetchCurrentLocationAction {
+  const FetchCurrentLocationAction();
 }
 
-class ExpandRecentListAction {
-  ExpandRecentListAction();
-}
-
-class GetPredictionListAction {
+class FetchPredictionListAction {
   final String keyword;
-  GetPredictionListAction(this.keyword);
+  const FetchPredictionListAction(this.keyword);
 }

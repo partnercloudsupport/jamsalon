@@ -1,8 +1,8 @@
 class SearchAction {
   final String keyword;
-  SearchAction(this.keyword);
+  const SearchAction(this.keyword);
 }
 
 class SearchSuccessAction {
-  SearchSuccessAction();
+  const SearchSuccessAction();
 }

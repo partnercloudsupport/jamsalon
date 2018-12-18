@@ -6,7 +6,7 @@ import 'package:jamsalon/feature/salon/salon_list_item.widget.dart';
 class SalonList extends StatelessWidget {
   final List<Salon> list;
 
-  SalonList(this.list);
+  const SalonList({Key key, this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class SalonList extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [SearchOptions()]..addAll(
-            this.list.map((item) => SalonListItem(item)).toList(),
+            this.list.map((item) => SalonListItem(salon: item)).toList(),
           ),
       ),
     );

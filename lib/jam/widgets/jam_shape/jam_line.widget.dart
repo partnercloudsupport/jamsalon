@@ -6,12 +6,13 @@ class JamLine extends StatelessWidget {
   final Color color;
   final BorderStyle style;
 
-  JamLine({
+  const JamLine({
+    Key key,
     this.length = double.infinity,
     this.thickness = 1.0,
     this.color,
     this.style = BorderStyle.solid,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

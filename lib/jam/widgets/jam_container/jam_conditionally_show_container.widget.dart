@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ConditionallyShowContainer extends StatelessWidget {
+class JamConditionallyShowContainer extends StatelessWidget {
   final Widget child;
   final bool condition;
-  ConditionallyShowContainer({this.child, this.condition});
+
+  const JamConditionallyShowContainer(
+      {Key key, @required this.child, @required this.condition})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

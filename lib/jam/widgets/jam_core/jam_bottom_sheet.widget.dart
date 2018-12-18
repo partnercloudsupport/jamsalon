@@ -4,7 +4,9 @@ class JamBottomSheet extends StatelessWidget {
   final double childHeight;
   final List<ListTile> children;
 
-  JamBottomSheet({this.childHeight = 100.0, this.children = const []});
+  const JamBottomSheet(
+      {Key key, this.childHeight = 100.0, this.children = const <ListTile>[]})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

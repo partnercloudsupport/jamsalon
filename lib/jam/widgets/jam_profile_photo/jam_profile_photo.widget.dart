@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jamsalon/jam/widgets/jam_profile_photo/jam_profile_photo_bottom_bar.widget.dart';
 
 class JamProfilePhoto extends StatefulWidget {
-  JamProfilePhoto();
+  const JamProfilePhoto({Key key}) : super(key: key);
 
   @override
   _JamProfilePhotoState createState() => _JamProfilePhotoState();
@@ -28,7 +28,7 @@ class _JamProfilePhotoState extends State<JamProfilePhoto> {
           showModalBottomSheet(
             context: context,
             builder: (BuildContext context) =>
-                JamProfilePhotoBottomBar(setPhoto),
+                JamProfilePhotoBottomBar(setPhoto: setPhoto),
           );
         },
         highlightElevation: 20.0,

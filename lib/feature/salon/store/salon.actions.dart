@@ -1,11 +1,11 @@
 import 'package:jamsalon/shared/model/salon.model.dart';
 
 class SearchSalonsAction {
-  SearchSalonsAction();
+  const SearchSalonsAction();
 }
 
 class SearchSalonsSuccessAction {
   final List<Salon> list;
 
-  SearchSalonsSuccessAction({this.list});
+  const SearchSalonsSuccessAction({this.list});
 }

@@ -4,7 +4,7 @@ import 'package:jamsalon/jam/jam.dart';
 import 'package:jamsalon/shared/build_bottom_navigation_bar.function.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage();
+  const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

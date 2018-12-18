@@ -4,7 +4,8 @@ import 'package:image_picker/image_picker.dart';
 class JamProfilePhotoBottomBar extends StatelessWidget {
   final Function setPhoto;
 
-  JamProfilePhotoBottomBar(this.setPhoto);
+  const JamProfilePhotoBottomBar({Key key, @required this.setPhoto})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

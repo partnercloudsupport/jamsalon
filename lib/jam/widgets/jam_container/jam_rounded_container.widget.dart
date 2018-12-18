@@ -4,7 +4,9 @@ class JamRoundedContainer extends StatelessWidget {
   final Widget child;
   final double borderRadius;
 
-  JamRoundedContainer({this.child, this.borderRadius = 4.0});
+  const JamRoundedContainer(
+      {Key key, @required this.child, this.borderRadius = 4.0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

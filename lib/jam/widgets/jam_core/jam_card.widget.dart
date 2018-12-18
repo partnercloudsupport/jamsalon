@@ -4,7 +4,9 @@ class JamCard extends StatelessWidget {
   final String title;
   final Widget child;
 
-  JamCard({this.title, this.child});
+  const JamCard({Key key, @required this.child, @required this.title})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

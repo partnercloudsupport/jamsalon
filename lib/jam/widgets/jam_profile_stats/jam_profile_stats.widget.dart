@@ -3,7 +3,9 @@ import 'package:jamsalon/jam/widgets/jam_profile_stats/jam_profile_stat_item.wid
 
 class JamProfileStats extends StatelessWidget {
   final List<JamProfileStatItem> children;
-  JamProfileStats({this.children = const []});
+
+  const JamProfileStats({Key key, this.children = const <JamProfileStatItem>[]})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

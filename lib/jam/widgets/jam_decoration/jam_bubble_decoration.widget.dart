@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class JamBubbleDecoration extends StatelessWidget {
   final Widget child;
 
-  JamBubbleDecoration({this.child});
+  const JamBubbleDecoration({Key key, @required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

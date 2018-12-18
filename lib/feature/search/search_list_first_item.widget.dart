@@ -5,7 +5,9 @@ class SearchListFirstItem extends StatelessWidget {
   final String item;
   final String group;
 
-  SearchListFirstItem({@required this.item, @required this.group});
+  const SearchListFirstItem(
+      {Key key, @required this.item, @required this.group})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

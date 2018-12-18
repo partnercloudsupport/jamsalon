@@ -9,7 +9,7 @@ class AppState {
   final SearchState searchState;
   final SearchLocationState searchLocationState;
 
-  AppState({
+  const AppState({
     @required this.salonState,
     @required this.searchState,
     @required this.searchLocationState,

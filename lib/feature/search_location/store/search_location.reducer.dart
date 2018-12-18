@@ -4,7 +4,7 @@ import 'package:jamsalon/shared/model/model.dart';
 
 SearchLocationState searchLocationReducer(
     SearchLocationState state, dynamic action) {
-  if (action is GetSavedListAction) {
+  if (action is FetchSavedListAction) {
     return state.copyWith(savedList: [
       Location(
         name: 'Home',
@@ -25,7 +25,7 @@ SearchLocationState searchLocationReducer(
         address: '112, Main Road, Porur, Chennai.',
       ),
     ]);
-  } else if (action is GetRecentListAction) {
+  } else if (action is FetchRecentListAction) {
     return state.copyWith(recentList: [
       Location(
         name: 'New Perungulathur',
@@ -46,15 +46,13 @@ SearchLocationState searchLocationReducer(
         address: 'No.3, Anna Road, Porur, Chennai.',
       ),
     ]);
-  } else if (action is ExpandSavedListAction) {
-    return state.copyWith(isSavedListExpanded: true);
-  } else if (action is ExpandRecentListAction) {
-    return state.copyWith(isRecentListExpanded: true);
-  } else if (action is GetPredictionListAction) {
+  } else if (action is FetchPredictionListAction) {
+    List<Location> newList = List.from(state.recentList)
+      ..addAll(List.from(state.recentList));
     return state.copyWith(
       searchKeyword: action.keyword,
       predictionList: action.keyword.length >= 3
-          ? List.from(state.recentList)
+          ? newList
           : List.unmodifiable(<Location>[]),
     );
   } else {

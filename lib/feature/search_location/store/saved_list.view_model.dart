@@ -6,23 +6,14 @@ import 'package:jamsalon/feature/search_location/store/search_location.actions.d
 
 class SavedListViewModel {
   final List<Location> list;
-  final bool isExpanded;
-  final Function() getList;
-  final Function() expandList;
+  final Function() fetchList;
 
-  SavedListViewModel({
+  const SavedListViewModel({
     @required this.list,
-    @required this.isExpanded,
-    @required this.getList,
-    @required this.expandList,
+    @required this.fetchList,
   });
 
   SavedListViewModel.fromStore(Store<AppState> store)
-      : list = store.state.searchLocationState.savedList.length <= 3 ||
-                store.state.searchLocationState.isSavedListExpanded
-            ? store.state.searchLocationState.savedList
-            : store.state.searchLocationState.savedList.sublist(0, 3),
-        isExpanded = store.state.searchLocationState.isSavedListExpanded,
-        getList = (() => store.dispatch(GetSavedListAction())),
-        expandList = (() => store.dispatch(ExpandSavedListAction()));
+      : list = store.state.searchLocationState.savedList,
+        fetchList = (() => store.dispatch(FetchSavedListAction()));
 }

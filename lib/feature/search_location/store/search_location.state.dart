@@ -10,7 +10,7 @@ class SearchLocationState {
   final bool isRecentListExpanded;
   final bool isSavedListExpanded;
 
-  SearchLocationState({
+  const SearchLocationState({
     @required this.searchKeyword,
     @required this.recentList,
     @required this.savedList,

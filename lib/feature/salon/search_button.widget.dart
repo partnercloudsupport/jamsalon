@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SearchButton extends StatelessWidget {
   final Function searchFn;
 
-  SearchButton(this.searchFn);
+  const SearchButton({Key key, this.searchFn}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -4,16 +4,12 @@ import 'package:redux/redux.dart';
 import 'package:jamsalon/shared/store/app.store.dart';
 
 class PredictionListViewModel {
-  final bool isKeywordTooShortToSearch;
   final List<Location> list;
 
-  PredictionListViewModel({
-    @required this.isKeywordTooShortToSearch,
+  const PredictionListViewModel({
     @required this.list,
   });
 
   PredictionListViewModel.fromStore(Store<AppState> store)
-      : isKeywordTooShortToSearch =
-            store.state.searchLocationState.searchKeyword.length < 3,
-        list = store.state.searchLocationState.predictionList;
+      : list = store.state.searchLocationState.predictionList;
 }

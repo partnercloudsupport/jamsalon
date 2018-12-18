@@ -7,7 +7,7 @@ class SalonViewModel {
   final List<Salon> list;
   final Function() searchAction;
 
-  SalonViewModel({
+  const SalonViewModel({
     this.list,
     this.searchAction,
   });

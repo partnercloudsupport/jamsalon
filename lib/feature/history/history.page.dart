@@ -4,7 +4,7 @@ import 'package:jamsalon/shared/build_bottom_navigation_bar.function.dart';
 import 'package:jamsalon/feature/history/check_in_list.widget.dart';
 
 class HistoryPage extends StatelessWidget {
-  HistoryPage();
+  const HistoryPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

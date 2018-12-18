@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class JamTitleText1 extends StatelessWidget {
   final String text;
 
-  JamTitleText1(this.text);
+  const JamTitleText1({Key key, this.text = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

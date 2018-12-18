@@ -7,7 +7,7 @@ class SearchBarViewModel {
   final String searchKeyword;
   final Function(String keyword) getPredictionList;
 
-  SearchBarViewModel({
+  const SearchBarViewModel({
     @required this.searchKeyword,
     @required this.getPredictionList,
   });
@@ -15,5 +15,5 @@ class SearchBarViewModel {
   SearchBarViewModel.fromStore(Store<AppState> store)
       : searchKeyword = store.state.searchLocationState.searchKeyword,
         getPredictionList = ((String keyword) =>
-            store.dispatch(GetPredictionListAction(keyword)));
+            store.dispatch(FetchPredictionListAction(keyword)));
 }
