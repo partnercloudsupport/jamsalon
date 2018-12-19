@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:jamsalon/jam/widgets/jam_profile_photo/jam_profile_photo_bottom_bar.widget.dart';
+import 'jam_profile_photo_bottom_bar.widget.dart';
 
 class JamProfilePhoto extends StatefulWidget {
   const JamProfilePhoto({Key key}) : super(key: key);

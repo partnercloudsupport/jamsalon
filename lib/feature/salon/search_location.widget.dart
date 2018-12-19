@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/shared/widget/widget.dart';
+import 'package:jamsalon/shared/widget/index.dart';
 
 class SearchLocation extends StatelessWidget {
   const SearchLocation({Key key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jamsalon/shared/model/salon.model.dart';
-import 'package:jamsalon/jam/jam.dart';
+import 'package:jamsalon/jam/widget/index.dart';
 
 class SalonListItem extends StatelessWidget {
   final Salon salon;

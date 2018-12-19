@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
-import 'package:jamsalon/core/config/config.dart';
-import 'package:jamsalon/shared/store/app.store.dart';
+import 'package:jamsalon/core/config/index.dart';
+import 'package:jamsalon/shared/store/index.dart';
 
 class App {
   static const String title = 'Jamsalon';

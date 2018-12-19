@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:jamsalon/jam/jam.dart';
+import 'package:jamsalon/jam/widget/index.dart';
 import 'package:jamsalon/shared/build_bottom_navigation_bar.function.dart';
 
 class HomePage extends StatelessWidget {

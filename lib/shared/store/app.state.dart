@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:jamsalon/feature/salon/salon.dart';
-import 'package:jamsalon/feature/search/search.dart';
-import 'package:jamsalon/feature/search_location/search_location.dart';
+import 'package:jamsalon/feature/salon/index.dart';
+import 'package:jamsalon/feature/search/index.dart';
+import 'package:jamsalon/feature/search_location/index.dart';
 
 @immutable
 class AppState {

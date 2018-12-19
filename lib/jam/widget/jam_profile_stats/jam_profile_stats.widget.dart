@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/jam/widgets/jam_profile_stats/jam_profile_stat_item.widget.dart';
+import 'jam_profile_stat_item.widget.dart';
 
 class JamProfileStats extends StatelessWidget {
   final List<JamProfileStatItem> children;

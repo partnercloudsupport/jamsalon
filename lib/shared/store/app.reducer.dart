@@ -1,7 +1,7 @@
 import 'package:jamsalon/shared/store/app.state.dart';
-import 'package:jamsalon/feature/salon/salon.dart';
-import 'package:jamsalon/feature/search/search.dart';
-import 'package:jamsalon/feature/search_location/search_location.dart';
+import 'package:jamsalon/feature/salon/index.dart';
+import 'package:jamsalon/feature/search/index.dart';
+import 'package:jamsalon/feature/search_location/index.dart';
 
 AppState appReducer(AppState state, dynamic action) {
   return AppState(

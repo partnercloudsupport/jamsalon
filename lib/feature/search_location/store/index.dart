@@ -1,5 +1,3 @@
-library search_location_store;
-
 export 'search_location.state.dart';
 export 'search_location.actions.dart';
 export 'search_location.reducer.dart';

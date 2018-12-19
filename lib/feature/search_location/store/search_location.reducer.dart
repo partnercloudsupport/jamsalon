@@ -1,6 +1,6 @@
+import 'package:jamsalon/shared/model/index.dart';
 import 'package:jamsalon/feature/search_location/store/search_location.state.dart';
 import 'package:jamsalon/feature/search_location/store/search_location.actions.dart';
-import 'package:jamsalon/shared/model/model.dart';
 
 SearchLocationState searchLocationReducer(
     SearchLocationState state, dynamic action) {

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:jamsalon/core/config/ui.config.dart';
 import 'package:redux/redux.dart';
-import 'package:jamsalon/jam/jam.dart';
-import 'package:jamsalon/shared/store/app.store.dart';
-import 'package:jamsalon/feature/search_location/store/search_location.store.dart';
+import 'package:jamsalon/core/config/ui.config.dart';
+import 'package:jamsalon/jam/widget/index.dart';
+import 'package:jamsalon/shared/store/index.dart';
+import 'package:jamsalon/feature/search_location/store/index.dart';
+import 'package:jamsalon/feature/search_location/search_location_list_group_header.widget.dart';
+import 'package:jamsalon/feature/search_location/search_location_list_item.widget.dart';
 
 class RecentList extends StatelessWidget {
   const RecentList({Key key}) : super(key: key);
@@ -18,28 +20,16 @@ class RecentList extends StatelessWidget {
           store.dispatch(FetchRecentListAction()),
       builder: (BuildContext context, RecentListViewModel vm) => Column(
             children: <Widget>[
-              ListTile(
-                title: Text(
-                  UiConfig.RECENT_LIST_CAPTION,
-                  style: Theme.of(context).textTheme.body2.copyWith(
-                        color: Theme.of(context).accentColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-              ),
+              SearchLocationListGroupHeader(text: UiConfig.RECENT_LIST_CAPTION),
               JamExpandableColumn(
                 initialCount: 3,
                 viewMoreText: UiConfig.VIEW_MORE_BUTTON_TEXT,
                 children: vm.list
                     .map(
-                      (item) => ListTile(
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 16.0,
-                              vertical: 8.0,
-                            ),
-                            leading: Icon(Icons.history),
-                            title: Text(item.name),
-                            subtitle: Text(item.address),
+                      (item) => SearchLocationListItem(
+                            icon: Icons.history,
+                            title: item.name,
+                            subtitle: item.address,
                           ),
                     )
                     .toList(),

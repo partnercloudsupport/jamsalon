@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/jam/jam.dart';
+import 'package:jamsalon/jam/widget/index.dart';
 
 class MultilineAssistiveText extends StatelessWidget {
   final List<Text> textWidgets;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/shared/model/model.dart';
+import 'package:jamsalon/shared/model/index.dart';
 
 class PredictionListItem extends StatelessWidget {
   final Location item;

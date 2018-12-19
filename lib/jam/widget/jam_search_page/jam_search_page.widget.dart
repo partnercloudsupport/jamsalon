@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/jam/widgets/jam_search_page/jam_search_list_item.widget.dart';
+import 'jam_search_list_item.widget.dart';
 
 class JamSearchPage extends StatelessWidget {
   const JamSearchPage({Key key}) : super(key: key);

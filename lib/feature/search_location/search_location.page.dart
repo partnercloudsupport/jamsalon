@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-import 'package:jamsalon/shared/store/app.store.dart';
-import 'package:jamsalon/feature/search_location/store/search_location.store.dart';
+import 'package:jamsalon/shared/store/index.dart';
+import 'package:jamsalon/feature/search_location/store/index.dart';
 import 'package:jamsalon/feature/search_location/search_bar.widget.dart';
 import 'package:jamsalon/feature/search_location/initial_list.widget.dart';
 import 'package:jamsalon/feature/search_location/keyword_too_short_message.widget.dart';

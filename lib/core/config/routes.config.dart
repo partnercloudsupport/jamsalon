@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/feature/salon/salon.dart';
-import 'package:jamsalon/feature/history/history.dart';
-import 'package:jamsalon/feature/search/search.dart';
-import 'package:jamsalon/feature/search_location/search_location.dart';
+import 'package:jamsalon/feature/salon/index.dart';
+import 'package:jamsalon/feature/history/index.dart';
+import 'package:jamsalon/feature/search/index.dart';
+import 'package:jamsalon/feature/search_location/index.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   '/salon': (BuildContext context) => SalonPage(),

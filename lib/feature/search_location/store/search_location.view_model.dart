@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
-import 'package:jamsalon/shared/store/app.store.dart';
+import 'package:jamsalon/shared/store/index.dart';
 
 class SearchLocationViewModel {
   final bool hasUserStartedTyping;

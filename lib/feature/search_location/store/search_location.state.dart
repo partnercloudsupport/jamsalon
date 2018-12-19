@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:jamsalon/shared/model/model.dart';
+import 'package:jamsalon/shared/model/index.dart';
 
 @immutable
 class SearchLocationState {

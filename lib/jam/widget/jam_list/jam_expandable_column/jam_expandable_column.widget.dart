@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/jam/jam.dart';
+import '../../jam_container/jam_conditionally_render_container.widget.dart';
+import 'view_more_button.widget.dart';
 
 class JamExpandableColumn extends StatefulWidget {
   final List<Widget> children;
@@ -44,18 +45,7 @@ class _JamExpandableColumnState extends State<JamExpandableColumn> {
             onTap: this._expandList,
             title: widget.viewMoreButton != null
                 ? widget.viewMoreButton
-                : Row(
-                    children: <Widget>[
-                      Text(
-                        widget.viewMoreText,
-                        style: Theme.of(context)
-                            .textTheme
-                            .body1
-                            .copyWith(color: Colors.black45),
-                      ),
-                      Icon(Icons.expand_more, color: Colors.black38),
-                    ],
-                  ),
+                : ViewMoreButton(text: widget.viewMoreText),
           ),
         ),
         // Divider(color: Colors.black87),

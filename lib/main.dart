@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:jamsalon/core/core.dart';
-import 'package:jamsalon/shared/store/app.store.dart';
-import 'package:jamsalon/feature/home/home.page.dart';
+import 'package:jamsalon/core/app.dart';
+import 'package:jamsalon/shared/store/index.dart';
+import 'package:jamsalon/feature/home/index.dart';
 
 main() => runApp(MyApp());
 
