@@ -26,8 +26,6 @@ class _JamExpandableColumnState extends State<JamExpandableColumn> {
 
   @override
   void initState() {
-    print(widget.initialCount);
-    print(widget.children.length);
     this.numberOfItemsToShow = widget.initialCount;
     this.isExpanded = (widget.children.length <= widget.initialCount);
     super.initState();

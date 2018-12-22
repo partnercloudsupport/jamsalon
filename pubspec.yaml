@@ -16,18 +16,23 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  # Stream Framework
+  rxdart: ^0.20.0
   # Database
-  # cloud_firestore: ^0.8.2+3
+  firebase_core: ^0.2.5+1
+  cloud_firestore: ^0.8.2+3
+  firestore_helpers: ^2.0.7
   # State Management
   redux: ^3.0.0
   flutter_redux: ^0.5.2
   flutter_redux_dev_tools: ^0.3.0
   # Widgets
   image_picker: ^0.4.10
+  # Styles
+  cupertino_icons: ^0.1.2
   # Utitlities
+  google_maps_flutter: ^0.0.3+3
+  google_maps_webservice: ^0.0.10
   geolocator: ^2.1.1
   intl: ^0.15.7
 

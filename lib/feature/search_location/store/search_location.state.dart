@@ -4,9 +4,9 @@ import 'package:jamsalon/shared/model/index.dart';
 @immutable
 class SearchLocationState {
   final String searchKeyword;
-  final List<Location> recentList;
-  final List<Location> savedList;
-  final List<Location> predictionList;
+  final List<JamLocation> recentList;
+  final List<JamLocation> savedList;
+  final List<JamLocation> predictionList;
   final bool isRecentListExpanded;
   final bool isSavedListExpanded;
 
@@ -21,17 +21,17 @@ class SearchLocationState {
 
   SearchLocationState.initialize()
       : searchKeyword = '',
-        recentList = List.unmodifiable(<Location>[]),
-        savedList = List.unmodifiable(<Location>[]),
-        predictionList = List.unmodifiable(<Location>[]),
+        recentList = List.unmodifiable(<JamLocation>[]),
+        savedList = List.unmodifiable(<JamLocation>[]),
+        predictionList = List.unmodifiable(<JamLocation>[]),
         isRecentListExpanded = false,
         isSavedListExpanded = false;
 
   SearchLocationState copyWith({
     String searchKeyword,
-    List<Location> recentList,
-    List<Location> savedList,
-    List<Location> predictionList,
+    List<JamLocation> recentList,
+    List<JamLocation> savedList,
+    List<JamLocation> predictionList,
     bool isRecentListExpanded,
     bool isSavedListExpanded,
   }) {

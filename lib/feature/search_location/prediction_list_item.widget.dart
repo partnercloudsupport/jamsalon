@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jamsalon/shared/model/index.dart';
 
 class PredictionListItem extends StatelessWidget {
-  final Location item;
+  final JamLocation item;
 
   const PredictionListItem({Key key, @required this.item});
 

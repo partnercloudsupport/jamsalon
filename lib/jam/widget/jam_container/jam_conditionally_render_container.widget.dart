@@ -10,6 +10,6 @@ class JamConditionallyRenderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return this.condition ? this.child : Container();
+    return (this.condition ?? false) ? this.child : Container();
   }
 }

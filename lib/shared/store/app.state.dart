@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+
 import 'package:jamsalon/feature/salon/index.dart';
 import 'package:jamsalon/feature/search/index.dart';
 import 'package:jamsalon/feature/search_location/index.dart';

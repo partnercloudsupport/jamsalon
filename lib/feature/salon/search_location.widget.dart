@@ -6,7 +6,6 @@ class SearchLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Container c = Container();
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

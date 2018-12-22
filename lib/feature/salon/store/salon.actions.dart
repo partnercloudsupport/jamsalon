@@ -1,11 +1,18 @@
-import 'package:jamsalon/shared/model/salon.model.dart';
+import 'package:meta/meta.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:jamsalon/shared/model/index.dart';
 
 class SearchSalonsAction {
-  const SearchSalonsAction();
+  final GeoPoint geoPoint;
+  final double radiusInKm;
+
+  const SearchSalonsAction({@required this.geoPoint, this.radiusInKm = 5.0});
 }
 
 class SearchSalonsSuccessAction {
   final List<Salon> list;
 
-  const SearchSalonsSuccessAction({this.list});
+  const SearchSalonsSuccessAction({@required this.list});
 }

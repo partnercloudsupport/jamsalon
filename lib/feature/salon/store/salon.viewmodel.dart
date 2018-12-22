@@ -14,5 +14,6 @@ class SalonViewModel {
 
   SalonViewModel.fromStore(Store<AppState> store)
       : list = store.state.salonState.list,
-        searchAction = (() => store.dispatch(SearchSalonsAction()));
+        searchAction = (() => null);
+  // searchAction = (() => store.dispatch(SearchSalonsAction()));
 }

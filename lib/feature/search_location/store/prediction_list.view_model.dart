@@ -4,7 +4,7 @@ import 'package:jamsalon/shared/store/index.dart';
 import 'package:jamsalon/shared/model/index.dart';
 
 class PredictionListViewModel {
-  final List<Location> list;
+  final List<JamLocation> list;
 
   const PredictionListViewModel({
     @required this.list,

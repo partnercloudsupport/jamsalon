@@ -5,7 +5,7 @@ import 'package:jamsalon/shared/model/index.dart';
 import 'package:jamsalon/feature/search_location/store/search_location.actions.dart';
 
 class SavedListViewModel {
-  final List<Location> list;
+  final List<JamLocation> list;
   final Function() fetchList;
 
   const SavedListViewModel({

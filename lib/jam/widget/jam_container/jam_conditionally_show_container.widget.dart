@@ -10,6 +10,7 @@ class JamConditionallyShowContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(opacity: this.condition ? 1.0 : 0.0, child: this.child);
+    return Opacity(
+        opacity: (this.condition ?? false) ? 1.0 : 0.0, child: this.child);
   }
 }

@@ -1,4 +1,4 @@
 library salon;
 
-export 'store/salon.store.dart';
+export 'store/index.dart';
 export 'salon.page.dart';

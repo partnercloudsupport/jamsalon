@@ -14,6 +14,6 @@ class JamConditionallySwitchContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return this.condition ? this.child1 : this.child2;
+    return (this.condition ?? false) ? this.child1 : this.child2;
   }
 }
