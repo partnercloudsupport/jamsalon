@@ -18,7 +18,7 @@ class SalonMiddleware extends MiddlewareClass<AppState> {
       print('salon middleware -- search action');
       DatabaseService.tables.salon
           .findAround(action.geoPoint, action.radiusInKm)
-          .doOnData(print)
+          .doOnData((list) => list.forEach((item) => print(item.name)))
           .listen(
               (list) => store.dispatch(SearchSalonsSuccessAction(list: list)));
     }

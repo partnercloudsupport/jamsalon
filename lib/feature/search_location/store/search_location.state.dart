@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 import 'package:jamsalon/shared/model/index.dart';
 
 @immutable
 class SearchLocationState {
+  final GeoPoint currentLocation;
   final String searchKeyword;
   final List<JamLocation> recentList;
   final List<JamLocation> savedList;
@@ -11,6 +13,7 @@ class SearchLocationState {
   final bool isSavedListExpanded;
 
   const SearchLocationState({
+    @required this.currentLocation,
     @required this.searchKeyword,
     @required this.recentList,
     @required this.savedList,
@@ -20,7 +23,8 @@ class SearchLocationState {
   });
 
   SearchLocationState.initialize()
-      : searchKeyword = '',
+      : currentLocation = null,
+        searchKeyword = '',
         recentList = List.unmodifiable(<JamLocation>[]),
         savedList = List.unmodifiable(<JamLocation>[]),
         predictionList = List.unmodifiable(<JamLocation>[]),
@@ -28,6 +32,7 @@ class SearchLocationState {
         isSavedListExpanded = false;
 
   SearchLocationState copyWith({
+    GeoPoint currentLocation,
     String searchKeyword,
     List<JamLocation> recentList,
     List<JamLocation> savedList,
@@ -36,6 +41,7 @@ class SearchLocationState {
     bool isSavedListExpanded,
   }) {
     return SearchLocationState(
+      currentLocation: currentLocation ?? this.currentLocation,
       searchKeyword: searchKeyword ?? this.searchKeyword,
       recentList: recentList ?? this.recentList,
       savedList: savedList ?? this.savedList,
@@ -49,6 +55,7 @@ class SearchLocationState {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is SearchLocationState &&
+          this.currentLocation == other.currentLocation &&
           this.searchKeyword == other.searchKeyword &&
           this.recentList == other.recentList &&
           this.savedList == other.savedList &&
@@ -58,6 +65,7 @@ class SearchLocationState {
 
   @override
   int get hashCode =>
+      this.currentLocation.hashCode ^
       this.searchKeyword.hashCode ^
       this.recentList.hashCode ^
       this.savedList.hashCode ^

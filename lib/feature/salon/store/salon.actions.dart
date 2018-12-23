@@ -8,7 +8,7 @@ class SearchSalonsAction {
   final GeoPoint geoPoint;
   final double radiusInKm;
 
-  const SearchSalonsAction({@required this.geoPoint, this.radiusInKm = 5.0});
+  const SearchSalonsAction(this.geoPoint, [this.radiusInKm = 5.0]);
 }
 
 class SearchSalonsSuccessAction {

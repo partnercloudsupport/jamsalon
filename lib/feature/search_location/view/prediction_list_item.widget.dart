@@ -4,7 +4,7 @@ import 'package:jamsalon/shared/model/index.dart';
 class PredictionListItem extends StatelessWidget {
   final JamLocation item;
 
-  const PredictionListItem({Key key, @required this.item});
+  const PredictionListItem({@required this.item});
 
   @override
   Widget build(BuildContext context) {
