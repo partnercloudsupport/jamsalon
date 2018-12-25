@@ -1,2 +1,2 @@
-export 'package:jamsalon/feature/search_location/search_location.page.dart';
-export 'package:jamsalon/feature/search_location/store/index.dart';
+export 'search_location.page.dart';
+export 'store/index.dart';

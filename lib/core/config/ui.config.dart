@@ -5,7 +5,7 @@ class UiConfig {
       const EdgeInsets.only(top: 20.0, bottom: 50.0);
   static const String CURRENT_LOCATION_BUTTON_TEXT = 'Use Current Location';
   static const EdgeInsets CURRENT_LOCATION_BUTTON_PADDING =
-      const EdgeInsets.symmetric(horizontal: 20.0);
+      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0);
   static const String SAVED_LIST_CAPTION = 'SAVED ADDRESSES';
   static const String RECENT_LIST_CAPTION = 'RECENT_SEARCHES';
   static const String VIEW_MORE_BUTTON_TEXT = 'VIEW_MORE';

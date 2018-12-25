@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import "package:google_maps_webservice/places.dart";
-import 'package:jamsalon/feature/search_location/view/recent_list.controller.dart';
-import 'package:jamsalon/feature/search_location/view/search_bar.controller.dart';
 import 'package:redux/redux.dart';
 
-import 'package:jamsalon/core/config/map.config.dart';
-import 'package:jamsalon/shared/store/index.dart';
 import 'package:jamsalon/shared/model/index.dart';
+import 'package:jamsalon/shared/store/index.dart';
 import 'package:jamsalon/feature/salon/index.dart';
-import '../view/current_location_button.controller.dart';
+import '../current_location_button/current_location_button.controller.dart';
+import '../recent_list/recent_list.controller.dart';
+import '../saved_list/saved_list.controller.dart';
+import '../search_bar/search_bar.controller.dart';
 import 'search_location.actions.dart';
 
 class SearchLocationMiddleware extends MiddlewareClass<AppState> {
@@ -23,13 +23,13 @@ class SearchLocationMiddleware extends MiddlewareClass<AppState> {
     next(action);
 
     if (action is FetchPredictionListAction) {
-      List<JamLocation> list = List.unmodifiable(const <Location>[]);
-      if (action.keyword.length >= 3) {
-        list =
-            await SearchBarController.middleware(action, googleMapsPlacesApi);
-      }
+      List<JamLocation> list = action.keyword.length >= 3
+          ? await SearchBarController.middleware(action, googleMapsPlacesApi)
+          : const [];
       next(FetchPredictionListSuccessAction(list));
     } else if (action is FetchSavedListAction) {
+      SavedListController.middleware(action)
+          .listen((list) => store.dispatch(FetchSavedListSuccessAction(list)));
     } else if (action is FetchRecentListAction) {
       RecentListController.middleware(action)
           .listen((list) => store.dispatch(FetchRecentListSuccessAction(list)));
@@ -38,9 +38,6 @@ class SearchLocationMiddleware extends MiddlewareClass<AppState> {
         store.dispatch(FetchCurrentLocationSuccessAction(geoPoint));
         store.dispatch(SearchSalonsAction(geoPoint));
       });
-      // CurrentLocationViewModel.middleware(action).listen((position) =>
-      //     store.dispatch(SearchSalonsAction(
-      //         geoPoint: GeoPoint(position.latitude, position.longitude))));
     }
   }
 }

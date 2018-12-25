@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:jamsalon/shared/model/index.dart';
 
 class FetchSavedListAction {

@@ -8,10 +8,6 @@ import 'package:jamsalon/shared/store/index.dart';
 class PredictionListViewModel {
   final List<JamLocation> list;
 
-  const PredictionListViewModel({
-    @required this.list,
-  });
-
   PredictionListViewModel.fromStore(Store<AppState> store)
       : list = store.state.searchLocationState.predictionList;
 }

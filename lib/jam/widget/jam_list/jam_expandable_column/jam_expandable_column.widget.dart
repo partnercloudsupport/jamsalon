@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../../jam_container/jam_conditionally_render_container.widget.dart';
 import 'view_more_button.widget.dart';
@@ -26,9 +28,16 @@ class _JamExpandableColumnState extends State<JamExpandableColumn> {
 
   @override
   void initState() {
-    this.numberOfItemsToShow = widget.initialCount;
     this.isExpanded = (widget.children.length <= widget.initialCount);
+    this.numberOfItemsToShow = min(widget.initialCount, widget.children.length);
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(Widget oldWidget) {
+    this.isExpanded = (widget.children.length <= widget.initialCount);
+    this.numberOfItemsToShow = min(widget.initialCount, widget.children.length);
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -46,13 +55,14 @@ class _JamExpandableColumnState extends State<JamExpandableColumn> {
                 : ViewMoreButton(text: widget.viewMoreText),
           ),
         ),
-        // Divider(color: Colors.black87),
       ],
     );
   }
 
   void _expandList() {
+    print('expand');
     setState(() {
+      print('setstate');
       this.numberOfItemsToShow = widget.children.length;
       this.isExpanded = true;
     });

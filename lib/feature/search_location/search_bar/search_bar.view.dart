@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jamsalon/feature/search_location/view/search_bar.controller.dart';
 import 'package:jamsalon/core/config/ui.config.dart';
+import 'search_bar.controller.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({Key key}) : super(key: key);

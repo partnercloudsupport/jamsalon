@@ -1,8 +1,8 @@
-import 'package:jamsalon/feature/search_location/view/recent_list.controller.dart';
-import 'package:jamsalon/feature/search_location/view/saved_list.controller.dart';
-import '../view/current_location_button.controller.dart';
-import 'search_location.state.dart';
+import '../current_location_button/current_location_button.controller.dart';
+import '../recent_list/recent_list.controller.dart';
+import '../saved_list/saved_list.controller.dart';
 import 'search_location.actions.dart';
+import 'search_location.state.dart';
 
 SearchLocationState searchLocationReducer(
   SearchLocationState state,
@@ -17,6 +17,7 @@ SearchLocationState searchLocationReducer(
   } else if (action is FetchPredictionListSuccessAction) {
     return state.copyWith(predictionList: action.list);
   } else if (action is FetchCurrentLocationSuccessAction) {
+    print(action.geoPoint);
     return CurrentLocationButtonController.reducer(state, action);
   } else {
     return state;

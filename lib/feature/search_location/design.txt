@@ -1,0 +1,16 @@
+search_location_page
+	app_bar
+		search_bar
+	search_location_container
+		[initial_list]
+			current_location
+			saved_list
+				search_location_list_group_header
+				search_location_list_item
+			recent_list
+				search_location_list_group_header
+				search_location_list_item
+		[prediction_list]
+			search_location_list_group_header
+			search_location_list_item
+		[keyword_too_short_message]

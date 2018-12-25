@@ -4,7 +4,7 @@ import 'package:jamsalon/shared/model/index.dart';
 
 @immutable
 class SearchLocationState {
-  final GeoPoint currentLocation;
+  final GeoPoint searchLocation;
   final String searchKeyword;
   final List<JamLocation> recentList;
   final List<JamLocation> savedList;
@@ -13,7 +13,7 @@ class SearchLocationState {
   final bool isSavedListExpanded;
 
   const SearchLocationState({
-    @required this.currentLocation,
+    @required this.searchLocation,
     @required this.searchKeyword,
     @required this.recentList,
     @required this.savedList,
@@ -23,11 +23,11 @@ class SearchLocationState {
   });
 
   SearchLocationState.initialize()
-      : currentLocation = null,
+      : searchLocation = null,
         searchKeyword = '',
-        recentList = List.unmodifiable(<JamLocation>[]),
-        savedList = List.unmodifiable(<JamLocation>[]),
-        predictionList = List.unmodifiable(<JamLocation>[]),
+        recentList = const [],
+        savedList = const [],
+        predictionList = const [],
         isRecentListExpanded = false,
         isSavedListExpanded = false;
 
@@ -41,7 +41,7 @@ class SearchLocationState {
     bool isSavedListExpanded,
   }) {
     return SearchLocationState(
-      currentLocation: currentLocation ?? this.currentLocation,
+      searchLocation: currentLocation ?? this.searchLocation,
       searchKeyword: searchKeyword ?? this.searchKeyword,
       recentList: recentList ?? this.recentList,
       savedList: savedList ?? this.savedList,
@@ -55,7 +55,7 @@ class SearchLocationState {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is SearchLocationState &&
-          this.currentLocation == other.currentLocation &&
+          this.searchLocation == other.searchLocation &&
           this.searchKeyword == other.searchKeyword &&
           this.recentList == other.recentList &&
           this.savedList == other.savedList &&
@@ -65,7 +65,7 @@ class SearchLocationState {
 
   @override
   int get hashCode =>
-      this.currentLocation.hashCode ^
+      this.searchLocation.hashCode ^
       this.searchKeyword.hashCode ^
       this.recentList.hashCode ^
       this.savedList.hashCode ^
