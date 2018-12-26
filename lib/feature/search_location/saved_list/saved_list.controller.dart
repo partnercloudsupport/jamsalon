@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
 import 'package:jamsalon/shared/store/index.dart';
@@ -5,6 +6,7 @@ import 'package:jamsalon/shared/model/index.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../store/index.dart';
@@ -25,40 +27,49 @@ class SavedListViewModel {
 
 class SavedListController {
   static StoreConnector<AppState, SavedListViewModel> storeConnector(
-          {@required Function(SavedListViewModel vm) builder}) =>
-      StoreConnector(
-        converter: (Store<AppState> store) =>
-            SavedListViewModel.fromStore(store),
-        onInit: (Store<AppState> store) =>
-            store.dispatch(FetchSavedListAction()),
-        builder: (BuildContext context, SavedListViewModel vm) => builder(vm),
-      );
+      {@required Function(SavedListViewModel vm) builder}) {
+    return StoreConnector(
+      converter: (Store<AppState> store) => SavedListViewModel.fromStore(store),
+      onInit: (Store<AppState> store) => store.dispatch(FetchSavedListAction()),
+      builder: (BuildContext context, SavedListViewModel vm) => builder(vm),
+    );
+  }
 
   static SearchLocationState reducer(
       SearchLocationState state, FetchSavedListSuccessAction action) {
     return state.copyWith(savedList: action.list);
   }
 
-  static Observable<List<JamLocation>> middleware(FetchSavedListAction action) {
-    return Observable.just([
-      JamLocation(
-        name: 'Home',
-        address:
-            'No.20, Near Grace Super Market, 88th Street, Sector 15, Kamarajar Salai, Chennai.',
-      ),
-      JamLocation(
-        name: 'Other',
-        address: 'Sampath Marriage Hall, Pole Star, 1st Main Road, Chennai.',
-      ),
-      JamLocation(
-        name: 'Other',
-        address:
-            '4/281, Opp. Panchayat Office, Ettayapuram Road, Muthammal Colony, Thoothukudi.',
-      ),
-      JamLocation(
-        name: 'Other',
-        address: '112, Main Road, Porur, Chennai.',
-      ),
-    ]);
+  static Stream<FetchSavedListSuccessAction> middleware(
+    Stream<FetchSavedListAction> action,
+    EpicStore<AppState> store,
+  ) {
+    return Observable(action)
+        .map((action) => [
+              JamLocation(
+                name: 'Home',
+                address:
+                    'Nungambakkam Railway Station, Sowrashtra Nagar, Choolaimedu, Chennai.',
+                geoPoint: GeoPoint(13.0663523, 80.2285082),
+              ),
+              JamLocation(
+                name: 'Other',
+                address:
+                    'Sampath Marriage Hall, Pole Star, 1st Main Road, Chennai.',
+                geoPoint: GeoPoint(1.0, 1.0),
+              ),
+              JamLocation(
+                name: 'Other',
+                address:
+                    '4/281, Opp. Panchayat Office, Ettayapuram Road, Muthammal Colony, Thoothukudi.',
+                geoPoint: GeoPoint(1.0, 1.0),
+              ),
+              JamLocation(
+                name: 'Other',
+                address: '112, Main Road, Porur, Chennai.',
+                geoPoint: GeoPoint(1.0, 1.0),
+              ),
+            ])
+        .map((list) => FetchSavedListSuccessAction(list));
   }
 }

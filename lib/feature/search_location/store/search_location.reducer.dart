@@ -17,7 +17,7 @@ SearchLocationState searchLocationReducer(
   } else if (action is FetchPredictionListSuccessAction) {
     return state.copyWith(predictionList: action.list);
   } else if (action is FetchCurrentLocationSuccessAction) {
-    print(action.geoPoint);
+    print(action.location);
     return CurrentLocationButtonController.reducer(state, action);
   } else {
     return state;

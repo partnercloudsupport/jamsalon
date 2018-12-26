@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
-import 'package:jamsalon/feature/salon/salon_search_bar.widget.dart';
-import 'package:jamsalon/feature/salon/store/salon.viewmodel.dart';
 import 'package:jamsalon/shared/build_bottom_navigation_bar.function.dart';
-import 'package:jamsalon/feature/salon/salon_list.widget.dart';
-import 'package:jamsalon/shared/store/app.state.dart';
+import 'search_bar/search_bar.view.dart';
+import 'salon_list/salon_list.view.dart';
 
 class SalonPage extends StatefulWidget {
   const SalonPage({Key key}) : super(key: key);
@@ -19,27 +15,17 @@ class _SalonPageState extends State<SalonPage> {
   @override
   Widget build(BuildContext context) {
     print('-BUILDING- SalonPage');
-    return StoreConnector<AppState, SalonViewModel>(
-      converter: (Store<AppState> store) => SalonViewModel.fromStore(store),
-      builder: (BuildContext context, SalonViewModel salonViewModel) =>
-          Scaffold(
-            bottomNavigationBar: buildBottomNavigationBar(context, 1),
-            body: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  SalonSearchBar(
-                    searchFn: () {
-                      salonViewModel.searchAction();
-                      Navigator.pushNamed(context, '/search_location');
-                    },
-                  ),
-                  SalonList(list: salonViewModel.list),
-                  // SizedBox(height: 50.0),
-                ],
-              ),
-            ),
-          ),
+    return Scaffold(
+      bottomNavigationBar: buildBottomNavigationBar(context, 1),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            SearchBar(),
+            SalonList(),
+          ],
+        ),
+      ),
     );
   }
 }

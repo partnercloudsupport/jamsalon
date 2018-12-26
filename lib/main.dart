@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:jamsalon/core/app.dart';
+import 'package:jamsalon/core/config/routes.config.dart';
 import 'package:jamsalon/shared/store/index.dart';
 import 'package:jamsalon/feature/home/index.dart';
 
@@ -29,6 +30,7 @@ class _MyAppState extends State<MyApp> {
         title: App.title,
         theme: App.theme,
         routes: App.routes,
+        navigatorKey: navigatorKey,
         home: HomePage(),
         debugShowCheckedModeBanner: false,
       ),

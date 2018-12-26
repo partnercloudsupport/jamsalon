@@ -3,6 +3,7 @@ import 'package:jamsalon/core/config/ui.config.dart';
 import 'package:jamsalon/jam/widget/index.dart';
 import '../widget/index.dart';
 import 'recent_list.controller.dart';
+import '../search_location_list_item/search_location_list_item.view.dart';
 
 class RecentList extends StatelessWidget {
   @override
@@ -15,7 +16,7 @@ class RecentList extends StatelessWidget {
               viewMoreText: UiConfig.VIEW_MORE_BUTTON_TEXT,
               children: vm.list
                   .map(
-                    (item) => SearchLocationListTile(
+                    (item) => SearchLocationListItem(
                           icon: Icons.history,
                           item: item,
                         ),

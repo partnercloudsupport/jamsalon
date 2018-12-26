@@ -25,8 +25,8 @@ class FetchCurrentLocationAction {
 }
 
 class FetchCurrentLocationSuccessAction {
-  final GeoPoint geoPoint;
-  const FetchCurrentLocationSuccessAction(this.geoPoint);
+  final JamLocation location;
+  const FetchCurrentLocationSuccessAction(this.location);
 }
 
 class FetchPredictionListAction {

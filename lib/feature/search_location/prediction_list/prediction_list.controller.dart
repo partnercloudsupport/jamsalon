@@ -14,11 +14,12 @@ class PredictionListViewModel {
 
 class PredictionListController {
   static StoreConnector<AppState, PredictionListViewModel> storeConnector(
-          {@required Function(PredictionListViewModel vm) builder}) =>
-      StoreConnector(
-        converter: (Store<AppState> store) =>
-            PredictionListViewModel.fromStore(store),
-        builder: (BuildContext context, PredictionListViewModel vm) =>
-            builder(vm),
-      );
+      {@required Function(PredictionListViewModel vm) builder}) {
+    return StoreConnector(
+      converter: (Store<AppState> store) =>
+          PredictionListViewModel.fromStore(store),
+      builder: (BuildContext context, PredictionListViewModel vm) =>
+          builder(vm),
+    );
+  }
 }

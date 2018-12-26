@@ -1,5 +1,5 @@
 import 'package:redux/redux.dart';
-import 'package:google_maps_webservice/places.dart';
+import 'package:redux_epics/redux_epics.dart';
 
 import 'package:jamsalon/shared/store/app.state.dart';
 import 'package:jamsalon/shared/store/app.reducer.dart';
@@ -18,20 +18,14 @@ class AppStore {
     DatabaseService.initialize();
 
     ///
-    /// Initialize Google Maps Places API
-    ///
-    final GoogleMapsPlaces googleMapsPlacesApi =
-        GoogleMapsPlaces(apiKey: 'AIzaSyCes9qkbEF8yLLULaY9IliYcpmESmJo4bQ');
-
-    ///
     /// Build and return store
     ///
     return Store(
       appReducer,
       initialState: AppState.initialize(),
       middleware: <Middleware<AppState>>[
-        SalonMiddleware(),
-        SearchLocationMiddleware(googleMapsPlacesApi: googleMapsPlacesApi),
+        EpicMiddleware(salonMiddleware),
+        EpicMiddleware(searchLocationMiddleware),
       ],
     );
   }

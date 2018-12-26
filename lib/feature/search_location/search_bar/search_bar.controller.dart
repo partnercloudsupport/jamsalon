@@ -7,6 +7,8 @@ import 'package:redux/redux.dart';
 
 import 'package:jamsalon/shared/store/index.dart';
 import 'package:jamsalon/feature/search_location/store/index.dart';
+import 'package:redux_epics/redux_epics.dart';
+import 'package:rxdart/rxdart.dart';
 
 class SearchBarViewModel {
   final String searchKeyword;
@@ -25,33 +27,38 @@ class SearchBarViewModel {
 
 class SearchBarController {
   static StoreConnector<AppState, SearchBarViewModel> storeConnector(
-          {@required Function(SearchBarViewModel vm) builder}) =>
-      StoreConnector(
-        converter: (Store<AppState> store) =>
-            SearchBarViewModel.fromStore(store),
-        builder: (BuildContext context, SearchBarViewModel vm) => builder(vm),
-      );
+      {@required Function(SearchBarViewModel vm) builder}) {
+    return StoreConnector(
+      converter: (Store<AppState> store) => SearchBarViewModel.fromStore(store),
+      builder: (BuildContext context, SearchBarViewModel vm) => builder(vm),
+    );
+  }
 
   static SearchLocationState reducer(
       SearchLocationState state, FetchPredictionListSuccessAction action) {
     return state.copyWith(predictionList: action.list);
   }
 
-  static Future<List<JamLocation>> middleware(FetchPredictionListAction action,
-      GoogleMapsPlaces googleMapsPlacesApi) async {
-    PlacesSearchResponse response = await googleMapsPlacesApi.searchByText(
-      action.keyword,
-      location: Location(
-        MapConfig.BIASED_LOCATION_LATITUDE,
-        MapConfig.BIASED_LOCATION_LONGITUDE,
-      ),
-      radius: MapConfig.BIASED_LOCATION_RADIUS * 1000,
-    );
-    return response.results
-        .map((place) => JamLocation(
-              name: place.name,
-              address: place.formattedAddress,
+  static Stream<FetchPredictionListSuccessAction> middleware(
+    Stream<FetchPredictionListAction> action,
+    EpicStore<AppState> store,
+  ) {
+    return Observable(action)
+        .where((action) => action.keyword.length >= 3)
+        .asyncMap((action) => GoogleMapsPlaces().searchByText(
+              action.keyword,
+              location: Location(
+                MapConfig.BIASED_LOCATION_LATITUDE,
+                MapConfig.BIASED_LOCATION_LONGITUDE,
+              ),
+              radius: MapConfig.BIASED_LOCATION_RADIUS * 1000,
             ))
-        .toList();
+        .map((response) => response.results
+            .map((place) => JamLocation(
+                  name: place.name,
+                  address: place.formattedAddress,
+                ))
+            .toList())
+        .map((list) => FetchPredictionListSuccessAction(list));
   }
 }
