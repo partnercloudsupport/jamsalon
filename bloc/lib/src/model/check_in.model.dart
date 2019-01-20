@@ -2,12 +2,13 @@ import 'package:jam_dart_models/models.dart';
 import 'package:meta/meta.dart';
 
 import 'salon.model.dart';
-import 'user.model.dart';
 
 @immutable
 class CheckIn extends Data {
   final String token;
+  final String userKey;
   final User user;
+  final String salonKey;
   final Salon salon;
   final DateTime createdTime;
   final DateTime startTime;
@@ -19,7 +20,9 @@ class CheckIn extends Data {
   const CheckIn({
     String key,
     this.token,
+    this.userKey,
     this.user,
+    this.salonKey,
     this.salon,
     this.createdTime,
     this.startTime,
@@ -31,7 +34,9 @@ class CheckIn extends Data {
 
   CheckIn.fromMap({String key, Map<String, dynamic> map})
       : this.token = map['token'],
+        this.userKey = map['userKey'],
         this.user = map['user'],
+        this.salonKey = map['salonKey'],
         this.salon = map['salon'],
         this.createdTime = map['createdTime'],
         this.startTime = map['startTime'],
@@ -45,8 +50,8 @@ class CheckIn extends Data {
   Map<String, dynamic> toMap() {
     return {
       'token': this.token,
-      'user': this.user,
-      'salon': this.salon,
+      'userKey': this.userKey,
+      'salonKey': this.salonKey,
       'createdTime': this.createdTime,
       'startTime': this.startTime,
       'endTime': this.endTime,
@@ -56,11 +61,26 @@ class CheckIn extends Data {
     };
   }
 
-  CheckIn copyWith({key, id, name, location, geoPoint, color, photoPath, isOpen}) {
+  CheckIn copyWith({
+    key,
+    token,
+    userKey,
+    user,
+    salonKey,
+    salon,
+    createdTime,
+    startTime,
+    endTime,
+    isAppointment,
+    status,
+    queuePosition,
+  }) {
     return CheckIn(
       key: key ?? this.key,
       token: token ?? this.token,
+      userKey: userKey ?? this.userKey,
       user: user ?? this.user,
+      salonKey: salonKey ?? this.salonKey,
       salon: salon ?? this.salon,
       createdTime: createdTime ?? this.createdTime,
       startTime: startTime ?? this.startTime,

@@ -6,18 +6,19 @@ environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
-  # Dart Core
+  # Dart Packages
   meta: ^1.1.6
-  # Stream Framework
+  # Stream Framework Packages
   rxdart: ^0.18.0
-  # State Management
+  # State Management Packages
   redux: ^3.0.0
   redux_epics: ^0.10.2
-  # Models
+  # Jam Packages
   jam_dart_models:
     path: ../../../jam_library/dart/models
-  # Interfaces
   jam_dart_interfaces:
     path: ../../../jam_library/dart/interfaces
+  jam_dart_utilities:
+    path: ../../../jam_library/dart/utilities
 
 dev_dependencies:

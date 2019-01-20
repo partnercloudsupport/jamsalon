@@ -23,6 +23,9 @@ dependencies:
     path: ../../../jam_library/flutter/services
   jam_flutter_widgets:
     path: ../../../jam_library/flutter/widgets
+  jam_dart_utilities:
+    path: ../../../jam_library/dart/utilities
+
   # Mobile Framework
   flutter:
     sdk: flutter

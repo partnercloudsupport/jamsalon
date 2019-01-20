@@ -4,25 +4,30 @@ import '../../model/index.dart';
 
 @immutable
 class SalonListState {
-  final Location selectedLocation;
   final List<Salon> list;
+  final Salon selectedItem;
+  final Location selectedLocation;
 
   const SalonListState({
-    @required this.selectedLocation,
     @required this.list,
+    @required this.selectedItem,
+    @required this.selectedLocation,
   });
 
   SalonListState.initialize()
-      : selectedLocation = null,
-        list = const [];
+      : list = const [],
+        selectedItem = null,
+        selectedLocation = null;
 
   SalonListState copyWith({
-    Location selectedLocation,
     List<Salon> list,
+    Salon selectedItem,
+    Location selectedLocation,
   }) {
     return SalonListState(
-      selectedLocation: selectedLocation ?? this.selectedLocation,
       list: list ?? this.list,
+      selectedItem: selectedItem ?? this.selectedItem,
+      selectedLocation: selectedLocation ?? this.selectedLocation,
     );
   }
 
@@ -30,9 +35,11 @@ class SalonListState {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is SalonListState &&
-          this.selectedLocation == other.selectedLocation &&
-          this.list == other.list;
+          this.list == other.list &&
+          this.selectedItem == other.selectedItem &&
+          this.selectedLocation == other.selectedLocation;
 
   @override
-  int get hashCode => this.selectedLocation.hashCode ^ this.list.hashCode;
+  int get hashCode =>
+      this.list.hashCode ^ this.selectedItem.hashCode ^ this.selectedLocation.hashCode;
 }

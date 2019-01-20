@@ -1,21 +1,39 @@
 import 'package:flutter/material.dart';
 
+final Color _appBackgroundColor = Color.fromRGBO(233, 236, 239, 1.0);
+// final Color _appBackgroundColor = Colors.green;
 final ThemeData _defaultThemeData = ThemeData.light();
 final TextTheme _defaultTextTheme = ThemeData.light().textTheme;
 
 final ThemeData appTheme = _defaultThemeData.copyWith(
-  backgroundColor: Color.fromRGBO(233, 236, 239, 1.0),
-  scaffoldBackgroundColor: Color.fromRGBO(233, 236, 239, 1.0),
-  primaryColor: Color.fromRGBO(233, 236, 239, 1.0),
+  ///
+  /// Brightnesses
+  ///
+  accentColorBrightness: Brightness.dark,
+  primaryColorBrightness: Brightness.dark,
+
+  ///
+  /// Colors
+  ///
+  accentColor: Colors.blueAccent,
+  backgroundColor: _appBackgroundColor,
+  canvasColor: Colors.transparent,
+  primaryColor: _appBackgroundColor,
   primaryColorLight: Color.fromRGBO(255, 255, 255, 1.0),
   primaryColorDark: Color.fromRGBO(68, 68, 68, 0.1),
-  primaryColorBrightness: Brightness.light,
-  accentColor: Colors.blueAccent,
-  accentColorBrightness: Brightness.dark,
+  scaffoldBackgroundColor: _appBackgroundColor,
+
+  ///
+  /// Button Theme
+  ///
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+    textTheme: ButtonTextTheme.primary,
   ),
-  // dividerColor: Colors.black38,
+
+  ///
+  /// Text Theme
+  ///
   textTheme: _defaultTextTheme.copyWith(
     button: _defaultTextTheme.button.copyWith(color: Colors.white),
     display1: _defaultTextTheme.display1.copyWith(

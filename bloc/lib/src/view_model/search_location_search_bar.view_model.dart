@@ -8,6 +8,6 @@ class SearchLocationSearchBarViewModel {
 
   SearchLocationSearchBarViewModel.fromStore(Store<AppState> store)
       : searchKeyword = store.state.searchLocationState.searchKeyword,
-        getPredictionList = ((String keyword) =>
-            store.dispatch(FetchPredictionListAction(keyword)));
+        getPredictionList =
+            ((String keyword) => store.dispatch(FetchPredictionListAction(keyword)));
 }

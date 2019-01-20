@@ -3,13 +3,13 @@ import 'package:jamsalon_bloc/src/config/index.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../jamsalon_api.dart';
+import '../../bloc_api.dart';
 import '../app/index.dart';
 import '../salon_list/salon_list.actions.dart';
 import 'search_location.actions.dart';
 
 class SearchLocationMiddleware {
-  final JamsalonApi _api;
+  final BlocAPI _api;
 
   SearchLocationMiddleware(this._api);
 
@@ -69,13 +69,13 @@ class SearchLocationMiddleware {
         .map((action) => [
               Location(
                 name: 'Home',
-                address: 'Nungambakkam Railway Station, Sowrashtra Nagar, Choolaimedu, Chennai.',
-                geoPoint: GeoPoint(13.0663523, 80.2285082),
+                address: 'SSM Nagar,SSM நகர், Alappakam, New Perungalathur, Chennai.',
+                geoPoint: GeoPoint(12.8918714, 80.1087996),
               ),
               Location(
                 name: 'Other',
-                address: 'Sampath Marriage Hall, Pole Star, 1st Main Road, Chennai.',
-                geoPoint: GeoPoint(1.0, 1.0),
+                address: 'Nungambakkam Railway Station, Sowrashtra Nagar, Choolaimedu, Chennai.',
+                geoPoint: GeoPoint(13.0663523, 80.2285082),
               ),
               Location(
                 name: 'Other',

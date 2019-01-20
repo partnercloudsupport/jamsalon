@@ -13,7 +13,7 @@ class App {
 
   static final Map<String, WidgetBuilder> routes = appRoutes;
 
-  static Store<AppState> get store => JamsalonBloc.store;
+  static Store<AppState> get store => MyAppBloc.store;
 
   static Future<bool> initialize() async {
     print('[App] App initializing');
@@ -27,20 +27,13 @@ class App {
     ///
     /// [TESTING ONLY] Add Delay
     ///
-    await Future.delayed(Duration(seconds: 5), () => print('[Test] Delaying 5 seconds'));
-
-    ///
-    /// Initialize Services
-    ///
-    var databaseService = DatabaseService();
-    await databaseService.initialize();
-    print('[App] Database initialized');
+    await Future.delayed(Duration(seconds: 2), () => print('[Test] Delaying 2 seconds'));
 
     ///
     /// Prepare API from Services
     ///
-    var api = JamsalonApi(
-      databaseService: databaseService,
+    var api = BlocAPI(
+      databaseService: DatabaseService(),
       locationService: LocationService(),
       placeService: PlaceService(KeyConfig.GOOGLE_MAPS_PLACES_API_KEY),
     );
@@ -48,7 +41,7 @@ class App {
     ///
     /// Initialize BLoC using API
     ///
-    JamsalonBloc.initialize(api: api);
+    await MyAppBloc.initialize(api: api);
     print('[App] Bloc initialized');
 
     ///

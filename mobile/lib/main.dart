@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:jamsalon_bloc/jamsalon_bloc.dart';
+
 import 'src/core/index.dart';
 import 'src/feature/home/index.dart';
 
@@ -34,6 +35,7 @@ class _MyAppState extends State<MyApp> {
             return StoreProvider<AppState>(
               store: App.store,
               child: MaterialApp(
+                color: Colors.blue,
                 title: App.title,
                 theme: App.theme,
                 routes: App.routes,
@@ -44,7 +46,7 @@ class _MyAppState extends State<MyApp> {
             );
           case ConnectionState.waiting:
             return Container(
-              color: Color.fromRGBO(233, 236, 239, 1.0),
+              // color: Color.fromRGBO(233, 236, 239, 1.0),
               height: double.infinity,
               width: double.infinity,
               child: Center(
@@ -57,7 +59,7 @@ class _MyAppState extends State<MyApp> {
             );
           default:
             return Container(
-              color: Color.fromRGBO(233, 236, 239, 1.0),
+              // color: Color.fromRGBO(233, 236, 239, 1.0),
               height: double.infinity,
               width: double.infinity,
               child: Center(

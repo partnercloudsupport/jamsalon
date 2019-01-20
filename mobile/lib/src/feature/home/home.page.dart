@@ -49,8 +49,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: JamCard(
                       title: 'Quick Actions',
                       child: Row(
@@ -96,8 +95,7 @@ class HomePage extends StatelessWidget {
                       )),
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: JamCard(
                     title: 'Photos',
                     child: Row(

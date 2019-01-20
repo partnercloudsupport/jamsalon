@@ -1,0 +1,89 @@
+Gender
+	Male
+	Female
+	Unisex
+
+Part
+	Hair
+	Face
+	Body
+	All
+
+Service
+	String name
+	String groupKey
+	ServiceGroup group
+	String gender
+	List<String> tagList
+
+ServiceGroup
+	String name
+	String scopeKey
+
+User
+	UserAccount account
+	UserProfile profile
+
+UserProfile
+	String name
+	bool isAdult
+	String gender
+	List<BodyFeature> featureList
+
+BodyFeature
+	String gender = 'men'
+	String hairLength = 'short'
+	String hairType
+	String hairThickness
+	String hairQuality
+	bool hasDandruff
+	String complexion
+
+Hair Coloring
+	Regular Hair Coloring
+	Henna Hair Coloring
+Hair Cut
+	Regular Hair Cut
+	Step Cut
+Hair Ironing
+	Regular Hair Ironing
+Head Massaging
+Hair Spa
+Hair Straightening
+Hair Styling
+Hair Treatment
+
+Beard Trimming
+	Beard Trimming
+	Beard Shaving
+	Beard Styling
+Bleaching
+Face Cleanup
+Facial
+	Fruit Facial
+	Golden Glow Facial
+	Platinum Shine Facial
+	Regular Facial
+	Herbal Facial
+Threading
+	Forehead Threading
+	Eyebrow Threading
+	Upper Lip Threading
+	Chin Threading
+
+Body Massage
+Body Polish
+Manicure
+Pedicure
+Waxing
+	Under Arm Waxing
+	Leg Waxing
+	Hand Waxing
+	Full Body Waxing
+	Lower Abdomen Waxing
+
+
+Makeup
+	Bridal Makeup
+	Traditional Makeup
+	Party Makeup

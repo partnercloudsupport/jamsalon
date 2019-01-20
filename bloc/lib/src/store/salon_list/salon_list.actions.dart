@@ -15,3 +15,9 @@ class SearchSalonsSuccessAction {
 
   const SearchSalonsSuccessAction({@required this.list});
 }
+
+class SelectSalonAction {
+  final Salon item;
+
+  const SelectSalonAction({@required this.item});
+}

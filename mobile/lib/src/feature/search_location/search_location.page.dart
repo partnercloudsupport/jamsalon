@@ -11,6 +11,7 @@ class SearchLocationPage extends StatelessWidget {
     print('-BUILDING- SearchLocationPage');
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black87),
         title: SearchBar(),
