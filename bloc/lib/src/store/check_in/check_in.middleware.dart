@@ -1,5 +1,4 @@
 import 'package:jam_dart_interfaces/interfaces.dart';
-import 'package:jamsalon_bloc/src/store/check_in/check_in.service.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:redux_epics/redux_epics.dart';
 
@@ -14,18 +13,27 @@ class CheckInMiddleware {
   CheckInMiddleware(BlocAPI api) : _db = api.databaseService;
 
   Epic<AppState> get epics => combineEpics<AppState>([
-        TypedEpic(_checkInEpic),
+        TypedEpic(_initializeForm),
         TypedEpic(_fetchServiceScopeListEpic),
         TypedEpic(_fetchServiceGroupListEpic),
         TypedEpic(_fetchServiceListEpic),
         TypedEpic(_fetchServiceListSuccessEpic),
+        TypedEpic(_checkInEpic),
       ]);
+
+  Stream<FetchServiceListAction> _initializeForm(
+    Stream<InitializeFormAction> action,
+    EpicStore<AppState> store,
+  ) {
+    return Observable(action).map((list) => FetchServiceListAction());
+  }
 
   Stream<FetchServiceScopeListSuccessAction> _fetchServiceScopeListEpic(
     Stream<FetchServiceScopeListAction> action,
     EpicStore<AppState> store,
   ) {
     return Observable(action)
+        .doOnData((action) => print(Tables.serviceScope.resolvedPath))
         .switchMap((action) => _db.list(Tables.serviceScope))
         .map((list) => FetchServiceScopeListSuccessAction(list: list));
   }
@@ -35,6 +43,7 @@ class CheckInMiddleware {
     EpicStore<AppState> store,
   ) {
     return Observable(action)
+        .doOnData((action) => print(Tables.serviceGroup.resolvedPath))
         .switchMap((action) => _db.list(Tables.serviceGroup))
         .map((list) => FetchServiceGroupListSuccessAction(list: list));
   }
@@ -43,8 +52,8 @@ class CheckInMiddleware {
     Stream<FetchServiceListAction> action,
     EpicStore<AppState> store,
   ) {
-    print('FetchServiceListAction begins');
     return Observable(action)
+        .doOnData((action) => print(Tables.service.resolvedPath))
         .switchMap((action) => _db.list(Tables.service))
         .map((list) => FetchServiceListSuccessAction(list: list));
   }
@@ -53,7 +62,6 @@ class CheckInMiddleware {
     Stream<FetchServiceListSuccessAction> action,
     EpicStore<AppState> store,
   ) {
-    print('FetchServiceListAction completes');
     return Observable(action).map((action) => FilterServiceListAction(
           filter: store.state.checkInState.serviceListFilter,
         ));
@@ -64,7 +72,8 @@ class CheckInMiddleware {
     EpicStore<AppState> store,
   ) {
     return Observable(action)
-        .switchMap((action) => _db.add(Tables.checkIn, item: action.item))
+        .switchMap((action) =>
+            _db.add(Tables.checkIn, item: store.state.checkInState.formItem))
         .switchMap((key) => _db.get(Tables.checkIn, key: key))
         .map((item) => CheckInSuccessAction(item: item));
   }

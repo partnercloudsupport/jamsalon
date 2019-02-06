@@ -1,0 +1,39 @@
+Bloc
+	- config
+		* Contains shared configs for both mobile and web
+			// For E.g.:
+					static const String RECENT_LIST_CAPTION = 'RECENT_SEARCHES';
+	- model
+		* Contains all immutable serializable models.
+	- service
+		* Contains shared services for both mobile and web
+	- store
+		* A typical redux store containing
+			- states
+				* Immutable serializable model representing the states of the app
+				* Should override '==' operator and hashCode getter
+			- actions
+				* Classes that hold action parameters and pass it down to the store
+				* Dispatched actions invoke their corresponding middlewares and then their corresponding reducers
+			- middlewares
+				* Responds to actions ( First Handler )
+				* Handles only the side effects like server calls
+				* Modularized into epics
+				* combineEpics function is necessary
+			- reducers
+				* Responds to actions ( Last Handler )
+				* Handles only the client side processing using helper services explained below
+				* Alters state
+			- helper services
+				* Contains pure functions to aid middlewares and reducers when bloated
+	- view_model
+		* Contains a section of a store required by a particular view
+		* Connected to view via store connectors
+	- bloc_api
+		* A BlocApi is a class
+		* Contains different services as members typed by their interface counterpart
+			// For E.g.:
+					DatabaseInterface databaseService
+	* A bloc is a static class which helps to
+		* Initialize Services
+		* Initialize Store

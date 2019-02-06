@@ -19,7 +19,7 @@ class CurrentLocationButton extends StatelessWidget {
             child: AppRaisedButtonWithIcon(
               onPressed: vm.fetchCurrentLocation,
               iconData: Icons.gps_fixed,
-              label: Text(UiConfig.CURRENT_LOCATION_BUTTON_TEXT),
+              label: UiConfig.CURRENT_LOCATION_BUTTON_TEXT,
             ),
           ),
     );

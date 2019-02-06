@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppRaisedButton extends StatelessWidget {
   final Function() onPressed;
-  final Text label;
+  final String label;
 
   const AppRaisedButton({
     Key key,
@@ -13,6 +13,7 @@ class AppRaisedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      child: Text(label),
       color: Theme.of(context).accentColor,
       colorBrightness: Brightness.dark,
       onPressed: this.onPressed,

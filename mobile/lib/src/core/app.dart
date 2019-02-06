@@ -16,6 +16,8 @@ class App {
   static Store<AppState> get store => MyAppBloc.store;
 
   static Future<bool> initialize() async {
+    print(
+        '--------------------------------------------------------------------------------');
     print('[App] App initializing');
 
     ///
@@ -27,12 +29,14 @@ class App {
     ///
     /// [TESTING ONLY] Add Delay
     ///
-    await Future.delayed(Duration(seconds: 2), () => print('[Test] Delaying 2 seconds'));
+    await Future.delayed(
+        Duration(seconds: 2), () => print('[Test] Delaying 2 seconds'));
 
     ///
     /// Prepare API from Services
     ///
     var api = BlocAPI(
+      authService: AuthService(),
       databaseService: DatabaseService(),
       locationService: LocationService(),
       placeService: PlaceService(KeyConfig.GOOGLE_MAPS_PLACES_API_KEY),

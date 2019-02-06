@@ -2,6 +2,7 @@ import 'package:jam_dart_models/models.dart';
 import 'package:meta/meta.dart';
 
 import 'salon.model.dart';
+import 'service.model.dart';
 
 @immutable
 class CheckIn extends Data {
@@ -16,6 +17,8 @@ class CheckIn extends Data {
   final bool isAppointment;
   final String status;
   final int queuePosition;
+  final List<String> serviceKeyList;
+  final List<Service> serviceList;
 
   const CheckIn({
     String key,
@@ -30,34 +33,44 @@ class CheckIn extends Data {
     this.isAppointment,
     this.status,
     this.queuePosition,
+    this.serviceKeyList,
+    this.serviceList,
   }) : super(key: key);
 
   CheckIn.fromMap({String key, Map<String, dynamic> map})
       : this.token = map['token'],
         this.userKey = map['userKey'],
-        this.user = map['user'],
+        this.user = map['userKey'] == null ? null : User(key: map['userKey']),
         this.salonKey = map['salonKey'],
-        this.salon = map['salon'],
+        this.salon =
+            map['salonKey'] == null ? null : Salon(key: map['salonKey']),
         this.createdTime = map['createdTime'],
         this.startTime = map['startTime'],
         this.endTime = map['endTime'],
         this.isAppointment = map['isAppointment'],
         this.status = map['status'],
         this.queuePosition = map['queuePosition'],
+        this.serviceKeyList = map['serviceKeyList'],
+        this.serviceList = map['serviceKeyList'] == null
+            ? null
+            : (map['serviceKeyList'] as List<String>)
+                .map((serviceKeyItem) => Service(key: serviceKeyItem))
+                .toList(),
         super(key: key);
 
   @override
   Map<String, dynamic> toMap() {
     return {
       'token': this.token,
-      'userKey': this.userKey,
-      'salonKey': this.salonKey,
+      'userKey': this.user?.key,
+      'salonKey': this.salon?.key,
       'createdTime': this.createdTime,
       'startTime': this.startTime,
       'endTime': this.endTime,
       'isAppointment': this.isAppointment,
       'status': this.status,
       'queuePosition': this.queuePosition,
+      'serviceKeyList': this.serviceList?.map((serviceItem) => serviceItem.key),
     };
   }
 
@@ -74,6 +87,8 @@ class CheckIn extends Data {
     isAppointment,
     status,
     queuePosition,
+    serviceKeyList,
+    serviceList,
   }) {
     return CheckIn(
       key: key ?? this.key,
@@ -88,6 +103,8 @@ class CheckIn extends Data {
       isAppointment: isAppointment ?? this.isAppointment,
       status: status ?? this.status,
       queuePosition: queuePosition ?? this.queuePosition,
+      serviceKeyList: serviceKeyList ?? this.serviceKeyList,
+      serviceList: serviceList ?? this.serviceList,
     );
   }
 }

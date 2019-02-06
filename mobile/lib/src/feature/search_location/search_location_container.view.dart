@@ -8,7 +8,7 @@ import 'prediction_list.view.dart';
 class SearchLocationContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- SeachLocationContainer');
+    print('[SearchLocation] -BUILDING- SeachLocationContainer');
     return StoreConnectors.searchLocationContainer(
       builder: (vm) => Container(
             padding: const EdgeInsets.all(10.0),

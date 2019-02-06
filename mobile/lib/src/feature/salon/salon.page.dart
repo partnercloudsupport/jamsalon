@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../core/store_connectors.dart';
 import 'salon.view.dart';
@@ -9,7 +8,7 @@ class SalonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- SalonPage');
+    print('[Salon] -BUILDING- SalonPage');
     return StoreConnectors.salonPage(
       builder: (vm) => Scaffold(
             backgroundColor: Color(vm.pageColor.value),

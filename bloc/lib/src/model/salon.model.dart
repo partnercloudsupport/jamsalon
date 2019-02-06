@@ -14,7 +14,7 @@ class Salon extends Data {
   const Salon({
     String key,
     this.id,
-    @required this.name,
+    this.name,
     this.location,
     this.geoPoint,
     this.color = const Color.fromRGBO(70, 150, 90, 1.0),
@@ -26,7 +26,8 @@ class Salon extends Data {
       : this.id = map['id'],
         this.name = map['name'],
         this.location = map['location'],
-        this.geoPoint = GeoPoint(map['geoPoint']?.latitude, map['geoPoint']?.longitude),
+        this.geoPoint =
+            GeoPoint(map['geoPoint']?.latitude, map['geoPoint']?.longitude),
         this.color = Color(int.tryParse(map['color'] ?? '0xFF666666')),
         this.photoPath = map['photoPath'] ?? 'assets/images/salon_1.jpg',
         this.isOpen = map['isOpen'] ?? false,
@@ -44,7 +45,8 @@ class Salon extends Data {
     };
   }
 
-  Salon copyWith({key, id, name, location, geoPoint, color, photoPath, isOpen}) {
+  Salon copyWith(
+      {key, id, name, location, geoPoint, color, photoPath, isOpen}) {
     return Salon(
       key: key ?? this.key,
       id: id ?? this.id,

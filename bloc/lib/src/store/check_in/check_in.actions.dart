@@ -2,6 +2,10 @@ import 'package:meta/meta.dart';
 
 import '../../model/index.dart';
 
+class InitializeFormAction {
+  const InitializeFormAction();
+}
+
 class FetchServiceScopeListAction {
   const FetchServiceScopeListAction();
 }
@@ -38,10 +42,20 @@ class FilterServiceListAction {
   const FilterServiceListAction({@required this.filter});
 }
 
-class CheckInAction {
-  final CheckIn item;
+class SelectServiceAction {
+  final Service item;
 
-  const CheckInAction({@required this.item});
+  const SelectServiceAction({@required this.item});
+}
+
+class DeselectServiceAction {
+  final Service item;
+
+  const DeselectServiceAction({@required this.item});
+}
+
+class CheckInAction {
+  const CheckInAction();
 }
 
 class CheckInSuccessAction {

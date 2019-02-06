@@ -6,6 +6,34 @@ export 'package:jamsalon_bloc/src/config/ui.config.dart';
 
 class StoreConnectors {
   ///
+  /// auth
+  ///
+  static StoreConnector<AppState, AuthViewModel> auth({
+    @required Function(AuthViewModel vm) builder,
+  }) =>
+      StoreConnector(
+        converter: (store) => AuthViewModel.fromStore(store),
+        builder: (context, vm) => builder(vm),
+        // onInit: (store) => store.dispatch(InitializeAuthAction()),
+      );
+
+  static StoreConnector<AppState, SignInPageViewModel> signInPage({
+    @required Function(SignInPageViewModel vm) builder,
+  }) =>
+      StoreConnector(
+        converter: (store) => SignInPageViewModel.fromStore(store),
+        builder: (context, vm) => builder(vm),
+      );
+
+  static StoreConnector<AppState, RegisterPageViewModel> registerPage({
+    @required Function(RegisterPageViewModel vm) builder,
+  }) =>
+      StoreConnector(
+        converter: (store) => RegisterPageViewModel.fromStore(store),
+        builder: (context, vm) => builder(vm),
+      );
+
+  ///
   /// salon_list
   ///
   static StoreConnector<AppState, SalonListViewModel> salonList({
@@ -58,6 +86,16 @@ class StoreConnectors {
         converter: (store) => SalonViewModel.fromStore(store),
         builder: (context, vm) => builder(vm),
       );
+
+  static StoreConnector<AppState, ShowCheckInPageButtonViewModel>
+      showCheckInPageButton({
+    @required Function(ShowCheckInPageButtonViewModel vm) builder,
+  }) =>
+          StoreConnector(
+            converter: (store) =>
+                ShowCheckInPageButtonViewModel.fromStore(store),
+            builder: (context, vm) => builder(vm),
+          );
 
   ///
   /// search_location
@@ -131,6 +169,25 @@ class StoreConnectors {
   ///
   /// check_in
   ///
+  // static StoreConnector<AppState, CheckInPageViewModel> checkInPage({
+  //   @required Function(CheckInPageViewModel vm) builder,
+  // }) =>
+  //     StoreConnector(
+  //       converter: (store) => CheckInPageViewModel.fromStore(store),
+  //       builder: (context, vm) => builder(vm),
+  //       onInitialBuild: (vm) => vm.initializeCheckIn(),
+  //       onDidChange: (vm) => vm.initializeCheckIn(),
+  //     );
+
+  static StoreConnector<AppState, SelectedServiceListViewModel>
+      selectedServiceList({
+    @required Function(SelectedServiceListViewModel vm) builder,
+  }) =>
+          StoreConnector(
+            converter: (store) => SelectedServiceListViewModel.fromStore(store),
+            builder: (context, vm) => builder(vm),
+          );
+
   static StoreConnector<AppState, ServiceListFilterViewModel>
       serviceListFilter({
     @required Function(ServiceListFilterViewModel vm) builder,
@@ -146,9 +203,14 @@ class StoreConnectors {
   }) =>
       StoreConnector(
         converter: (store) => ServiceListViewModel.fromStore(store),
-        builder: (context, vm) {
-          print(vm.list.length);
-          return builder(vm);
-        },
+        builder: (context, vm) => builder(vm),
+      );
+
+  static StoreConnector<AppState, CheckInButtonViewModel> checkInButton({
+    @required Function(CheckInButtonViewModel vm) builder,
+  }) =>
+      StoreConnector(
+        converter: (store) => CheckInButtonViewModel.fromStore(store),
+        builder: (context, vm) => builder(vm),
       );
 }

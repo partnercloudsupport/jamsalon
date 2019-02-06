@@ -14,6 +14,7 @@ class Service extends Data {
   final double price;
   final int duration;
   final BodyFeature suitedBodyFeature;
+  final bool isFirstItem;
 
   const Service({
     String key,
@@ -25,17 +26,22 @@ class Service extends Data {
     this.price,
     this.duration,
     this.suitedBodyFeature,
+    this.isFirstItem = false,
   }) : super(key: key);
 
   Service.fromMap({String key, Map<String, dynamic> map})
       : this.name = map['name'],
         this.description = map['description'],
         this.groupKey = map['groupKey'],
-        this.group = map['group'],
+        this.group =
+            map['groupKey'] == null ? null : ServiceGroup(key: map['groupKey']),
         this.gender = map['gender'],
         this.price = map['price'],
         this.duration = map['duration'],
-        this.suitedBodyFeature = map['suitedBodyFeature'],
+        this.suitedBodyFeature = map['suitedBodyFeature'] == null
+            ? null
+            : BodyFeature.fromMap(map: map['suitedBodyFeature']),
+        this.isFirstItem = false,
         super(key: key);
 
   @override
@@ -43,11 +49,11 @@ class Service extends Data {
     return {
       'name': this.name,
       'description': this.description,
-      'groupKey': this.groupKey,
+      'groupKey': this.group?.key,
       'gender': this.gender,
       'price': this.price,
       'duration': this.duration,
-      'suitedBodyFeature': this.suitedBodyFeature,
+      'suitedBodyFeature': this.suitedBodyFeature.toMap(),
     };
   }
 
@@ -61,6 +67,7 @@ class Service extends Data {
     double price,
     int duration,
     BodyFeature suitedBodyFeature,
+    bool isFirstItem,
   }) {
     return Service(
       key: key ?? this.key,
@@ -72,6 +79,7 @@ class Service extends Data {
       price: price ?? this.price,
       duration: duration ?? this.duration,
       suitedBodyFeature: suitedBodyFeature ?? this.suitedBodyFeature,
+      isFirstItem: isFirstItem ?? this.isFirstItem,
     );
   }
 }

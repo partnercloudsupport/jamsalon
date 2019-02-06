@@ -7,7 +7,7 @@ import 'salon_list_item.widget.dart';
 class SalonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- SalonList');
+    print('[SalonList] -BUILDING- SalonList');
     return StoreConnectors.salonList(
       builder: (vm) => Container(
             height: 360,

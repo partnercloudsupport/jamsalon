@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:jam_flutter_widgets/widgets.dart';
 
+import '../../core/store_connectors.dart';
 import 'service_list_dialog.view.dart';
 
 class CheckInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- CheckInPage');
+    print('[CheckIn] -BUILDING- CheckInPage');
     return JamBottomSheet(
       title: 'Check In',
       shouldAddCancelButton: true,
-      actions: [
-        RaisedButton(
-          color: Theme.of(context).accentColor,
-          onPressed: () {},
-          child: Text('Check In'),
-        ),
-      ],
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,6 +56,17 @@ class CheckInPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50.0),
+            StoreConnectors.selectedServiceList(
+              builder: (vm) => Container(
+                    height: 50.0,
+                    child: ListView.builder(
+                      itemCount: vm.selectedServiceList.length,
+                      itemBuilder: (context, i) =>
+                          Text(vm.selectedServiceList[i].name ?? ''),
+                    ),
+                  ),
+            ),
+            SizedBox(height: 10.0),
             FlatButton(
               onPressed: () => showDialog(
                     context: context,
@@ -76,6 +81,17 @@ class CheckInPage extends StatelessWidget {
           ],
         ),
       ),
+      actions: [
+        StoreConnectors.checkInButton(
+          builder: (vm) {
+            return RaisedButton(
+              color: Theme.of(context).accentColor,
+              onPressed: () => vm.checkIn(),
+              child: Text('Check In'),
+            );
+          },
+        ),
+      ],
     );
   }
 }

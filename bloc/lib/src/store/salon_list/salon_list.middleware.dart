@@ -34,9 +34,11 @@ class SalonListMiddleware {
     Stream<SelectSalonAction> action,
     EpicStore<AppState> store,
   ) {
-    return Observable(action).map((action) => this._api.databaseService.resolvePaths(
-          Tables.salon.name,
-          action.item.key,
-        ));
+    return Observable(action)
+        .map((action) => this._api.databaseService.resolvePaths(
+              Tables.salon.name,
+              action.item.key,
+            ))
+        .doOnData((_) => print(Tables.service.resolvedPath));
   }
 }

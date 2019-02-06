@@ -19,14 +19,15 @@ class ServiceGroup extends Data {
   ServiceGroup.fromMap({String key, Map<String, dynamic> map})
       : this.name = map['name'],
         this.scopeKey = map['scopeKey'],
-        this.scope = map['scope'],
+        this.scope =
+            map['scopeKey'] == null ? null : ServiceScope(key: map['scopeKey']),
         super(key: key);
 
   @override
   Map<String, dynamic> toMap() {
     return {
       'name': this.name,
-      'scopeKey': this.scopeKey,
+      'scopeKey': this.scope?.key,
     };
   }
 

@@ -8,7 +8,7 @@ class SearchLocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- SearchLocationPage');
+    print('[SearchLocation] -BUILDING- SearchLocationPage');
     return Scaffold(
       appBar: AppBar(
         brightness: Brightness.light,

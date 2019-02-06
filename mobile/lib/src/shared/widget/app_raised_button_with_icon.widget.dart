@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppRaisedButtonWithIcon extends StatelessWidget {
   final Function() onPressed;
-  final Text label;
+  final String label;
   final IconData iconData;
 
   const AppRaisedButtonWithIcon({
@@ -19,7 +19,7 @@ class AppRaisedButtonWithIcon extends StatelessWidget {
       colorBrightness: Brightness.dark,
       onPressed: this.onPressed,
       icon: Icon(this.iconData, size: 16.0),
-      label: this.label,
+      label: Text(this.label),
     );
   }
 }

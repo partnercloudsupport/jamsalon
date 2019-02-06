@@ -9,6 +9,7 @@ class BodyFeature extends Data {
   final String hairThickness;
   final String hairColor;
   final bool hasDandruff;
+  final bool hasGreyHairs;
   final String skinTone;
   final String skinType;
 
@@ -20,17 +21,20 @@ class BodyFeature extends Data {
     this.hairThickness,
     this.hairColor,
     this.hasDandruff,
+    this.hasGreyHairs,
     this.skinTone,
     this.skinType,
   }) : super(key: key);
 
   BodyFeature.fromMap({String key, Map<String, dynamic> map})
-      : this.bodyFrame = map['bodyFrame'],
+      : assert(map != null),
+        this.bodyFrame = map['bodyFrame'],
         this.hairLength = map['hairLength'],
         this.hairType = map['hairType'],
         this.hairThickness = map['hairThickness'],
         this.hairColor = map['hairColor'],
         this.hasDandruff = map['hasDandruff'],
+        this.hasGreyHairs = map['hasGreyHairs'],
         this.skinTone = map['skinTone'],
         this.skinType = map['skinType'],
         super(key: key);
@@ -44,6 +48,7 @@ class BodyFeature extends Data {
       'hairThickness': this.hairThickness,
       'hairColor': this.hairColor,
       'hasDandruff': this.hasDandruff,
+      'hasGreyHairs': this.hasGreyHairs,
       'skinTone': this.skinTone,
       'skinType': this.skinType,
     };
@@ -57,6 +62,7 @@ class BodyFeature extends Data {
     String hairThickness,
     String hairColor,
     bool hasDandruff,
+    bool hasGreyHairs,
     String skinTone,
     String skinType,
   }) {
@@ -68,6 +74,7 @@ class BodyFeature extends Data {
       hairThickness: hairThickness ?? this.hairThickness,
       hairColor: hairColor ?? this.hairColor,
       hasDandruff: hasDandruff ?? this.hasDandruff,
+      hasGreyHairs: hasGreyHairs ?? this.hasGreyHairs,
       skinTone: skinTone ?? this.skinTone,
       skinType: skinType ?? this.skinType,
     );
@@ -81,6 +88,7 @@ class BodyFeature extends Data {
       this.hairThickness == other.hairThickness &&
       this.hairColor == other.hairColor &&
       this.hasDandruff == other.hasDandruff &&
+      this.hasGreyHairs == other.hasGreyHairs &&
       this.skinTone == other.skinTone &&
       this.skinType == other.skinType;
 }

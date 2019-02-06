@@ -10,7 +10,7 @@ class SalonListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- SalonListItem');
+    print('[SalonList] -BUILDING- SalonListItem');
     return StoreConnectors.salonListItem(
       builder: (vm) => GestureDetector(
             onTap: () {
@@ -29,12 +29,14 @@ class SalonListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 40.0, bottom: 30.0, right: 20.0),
+                      padding:
+                          EdgeInsets.only(top: 40.0, bottom: 30.0, right: 20.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 2.0),
                             decoration: BoxDecoration(
                               color: this.salon.isOpen
                                   ? Color.fromRGBO(98, 141, 49, 1.0)
@@ -43,7 +45,8 @@ class SalonListItem extends StatelessWidget {
                             ),
                             child: Text(
                               this.salon.isOpen ? 'OPEN' : 'CLOSED',
-                              style: TextStyle(color: Colors.white, fontSize: 9.0),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 9.0),
                             ),
                           ),
                           Container(

@@ -6,6 +6,7 @@ SalonListState salonListReducer(SalonListState state, dynamic action) {
     return state.copyWith(list: action.list);
   } else if (action is SelectSalonAction) {
     return state.copyWith(selectedItem: action.item);
+  } else {
+    return state;
   }
-  return state;
 }

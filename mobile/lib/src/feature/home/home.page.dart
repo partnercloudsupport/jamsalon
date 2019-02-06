@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:jam_flutter_widgets/widgets.dart';
+import 'package:jamsalon/src/core/store_connectors.dart';
+import 'package:jamsalon/src/shared/widget/index.dart';
 import '../../shared/build_bottom_navigation_bar.function.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- HomePage');
+    print('[Home] -BUILDING- HomePage');
     return Scaffold(
       bottomNavigationBar: buildBottomNavigationBar(context, 0),
       body: CustomScrollView(
@@ -21,17 +22,25 @@ class HomePage extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               centerTitle: true,
-              title: Text(
-                'Elisa Feranze',
-                style: Theme.of(context).textTheme.headline,
-              ),
+              title: StoreConnectors.auth(builder: (vm) {
+                return Text(
+                  vm.user?.name ?? '',
+                  style: Theme.of(context).textTheme.headline,
+                );
+              }),
               background: Container(
                 padding: EdgeInsets.only(top: 80.0),
                 height: 200.0,
                 child: JamBubbleDecoration(
                   child: Container(
                     alignment: Alignment.topCenter,
-                    child: JamProfilePhoto(),
+                    child: StoreConnectors.auth(
+                      builder: (vm) => JamProfilePhoto(
+                            photoUrl: vm.user.profile.photoUrl,
+                            uploadPhoto: null,
+                            removePhoto: null,
+                          ),
+                    ),
                   ),
                 ),
               ),
@@ -40,18 +49,28 @@ class HomePage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               <Widget>[
-                SizedBox(height: 50.0),
-                JamProfileStats(
-                  children: [
-                    JamProfileStatItem(label: 'LAST VISIT', value: '10'),
-                    JamProfileStatItem(label: 'FAVORITES', value: '2'),
-                    JamProfileStatItem(label: 'RATING', value: '4'),
-                  ],
+                StoreConnectors.auth(
+                  builder: (vm) => Container(
+                        alignment: Alignment.center,
+                        child: AppRaisedButton(
+                          onPressed: () => vm.signOut(),
+                          label: 'Sign Out',
+                        ),
+                      ),
                 ),
+                SizedBox(height: 50.0),
+                // JamProfileStats(
+                //   children: [
+                //     JamProfileStatItem(label: 'LAST VISIT', value: '10'),
+                //     JamProfileStatItem(label: 'FAVORITES', value: '2'),
+                //     JamProfileStatItem(label: 'RATING', value: '4'),
+                //   ],
+                // ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: JamCard(
-                      title: 'Quick Actions',
+                      title: 'User',
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -63,8 +82,22 @@ class HomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(4.0),
                               ),
                               color: Color.fromRGBO(240, 240, 240, 1.0),
-                              onPressed: () {},
-                              child: Text('Quick Check In'),
+                              onPressed: () =>
+                                  Navigator.of(context).pushNamed('/profile'),
+                              child: Text('Profile'),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 100.0,
+                            height: 100.0,
+                            child: FlatButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                              color: Color.fromRGBO(240, 240, 240, 1.0),
+                              onPressed: () =>
+                                  Navigator.of(context).pushNamed('/settings'),
+                              child: Text('Settings'),
                             ),
                           ),
                           SizedBox(
@@ -76,26 +109,15 @@ class HomePage extends StatelessWidget {
                               ),
                               color: Color.fromRGBO(240, 240, 240, 1.0),
                               onPressed: () {},
-                              child: Text('Quick Silent Check In'),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 100.0,
-                            height: 100.0,
-                            child: FlatButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0),
-                              ),
-                              color: Color.fromRGBO(240, 240, 240, 1.0),
-                              onPressed: () {},
-                              child: Text('Quick Silent Check In and Close'),
+                              child: Text('Help'),
                             ),
                           ),
                         ],
                       )),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: JamCard(
                     title: 'Photos',
                     child: Row(

@@ -1,0 +1,10 @@
+export 'auth/index.dart';
+export 'check_in/index.dart';
+export 'history/index.dart';
+export 'home/index.dart';
+export 'profile/index.dart';
+export 'salon/index.dart';
+export 'salon_list/index.dart';
+export 'search_location/index.dart';
+export 'settings/index.dart';
+export 'splash_screen/index.dart';

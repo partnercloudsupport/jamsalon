@@ -1,20 +1,19 @@
+import 'package:jam_dart_utilities/list_utils.dart' as list_utils;
+
 import 'check_in.state.dart';
 import 'check_in.actions.dart';
 import 'check_in.service.dart';
 
 CheckInState checkInReducer(CheckInState state, dynamic action) {
-  if (action is FetchServiceScopeListSuccessAction) {
-    print('FetchServiceScopeListSuccessAction completes');
+  if (action is InitializeFormAction) {
     return state.copyWith(
-      serviceScopeList: action.list,
+      formItem: CheckInService.refreshFormItem(state.formItem),
     );
+  } else if (action is FetchServiceScopeListSuccessAction) {
+    return state.copyWith(serviceScopeList: action.list);
   } else if (action is FetchServiceGroupListSuccessAction) {
-    print('FetchServiceGroupListSuccessAction completes');
-    return state.copyWith(
-      serviceGroupList: action.list,
-    );
+    return state.copyWith(serviceGroupList: action.list);
   } else if (action is FetchServiceListSuccessAction) {
-    print('FetchServiceListSuccessAction completes');
     return state.copyWith(
       serviceList: CheckInService.fillServiceList(
         list: action.list,
@@ -22,12 +21,7 @@ CheckInState checkInReducer(CheckInState state, dynamic action) {
         scopeList: state.serviceScopeList,
       ),
     );
-  } else if (action is CheckInAction) {
-    return state.copyWith(
-      item: action.item,
-    );
   } else if (action is FilterServiceListAction) {
-    print('FilterServiceListAction completes');
     return state.copyWith(
       serviceListFilter: action.filter,
       filteredServiceList: CheckInService.filterServiceList(
@@ -35,6 +29,29 @@ CheckInState checkInReducer(CheckInState state, dynamic action) {
         action.filter,
       ),
     );
+  } else if (action is SelectServiceAction) {
+    // final newFormItem = CheckInService.refreshFormItem(state.formItem);
+    return state.copyWith(
+      formItem: state.formItem.copyWith(
+        serviceList: list_utils.addData(
+          state.formItem.serviceList,
+          action.item,
+        ),
+      ),
+    );
+  } else if (action is DeselectServiceAction) {
+    // final newFormItem = CheckInService.refreshFormItem(state.formItem);
+    return state.copyWith(
+      formItem: state.formItem.copyWith(
+        serviceList: list_utils.remove(
+          state.formItem.serviceList,
+          action.item,
+        ),
+      ),
+    );
+  } else if (action is CheckInSuccessAction) {
+    return state.copyWith(item: action.item);
+  } else {
+    return state;
   }
-  return state;
 }

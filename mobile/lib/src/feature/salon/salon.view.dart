@@ -6,7 +6,7 @@ import '../check_in/check_in.page.dart';
 class Salon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('-BUILDING- Salon');
+    print('[Salon] -BUILDING- Salon');
     return StoreConnectors.salon(
       builder: (vm) => Container(
             child: Column(
@@ -19,7 +19,10 @@ class Salon extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         vm.item.name,
-                        style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white),
+                        style: Theme.of(context)
+                            .textTheme
+                            .display1
+                            .copyWith(color: Colors.white),
                       ),
                       Text(
                         vm.item.location,
@@ -49,26 +52,36 @@ class Salon extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 50.0,
-                    onPressed: () {
-                      // SystemConfig.setSystemNavigationBarColor(Colors.transparent);
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (context) => CheckInPage(),
-                      ).whenComplete(() =>
-                          // SystemConfig.setSystemNavigationBarColor(Color(vm.item.color.value))
-                          null);
-                    },
-                    color: Colors.green,
-                    // padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 15.0),
-                    child: Text(
-                      'Check In',
-                      style: Theme.of(context).textTheme.title.copyWith(color: Colors.white),
-                    ),
-                  ),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0, vertical: 40.0),
+                  child: StoreConnectors.showCheckInPageButton(builder: (vm) {
+                    return MaterialButton(
+                      minWidth: double.infinity,
+                      height: 50.0,
+                      color: Colors.green,
+                      child: Text(
+                        'Check In',
+                        style: Theme.of(context)
+                            .textTheme
+                            .title
+                            .copyWith(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        // SystemConfig.setSystemNavigationBarColor(Colors.transparent);
+                        // showBottomSheet(
+                        //   context: context,
+                        //   builder: (context) => CheckInPage(),
+                        // );
+                        vm.initializeForm();
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => CheckInPage(),
+                        ).whenComplete(() =>
+                            // SystemConfig.setSystemNavigationBarColor(Color(vm.item.color.value))
+                            null);
+                      },
+                    );
+                  }),
                 ),
               ],
             ),

@@ -4,6 +4,7 @@ import '../../model/index.dart';
 @immutable
 class CheckInState {
   final CheckIn item;
+  final CheckIn formItem;
   final List<ServiceScope> serviceScopeList;
   final List<ServiceGroup> serviceGroupList;
   final List<Service> serviceList;
@@ -12,6 +13,7 @@ class CheckInState {
 
   const CheckInState({
     @required this.item,
+    @required this.formItem,
     @required this.serviceScopeList,
     @required this.serviceGroupList,
     @required this.serviceList,
@@ -21,6 +23,7 @@ class CheckInState {
 
   CheckInState.initialize()
       : item = null,
+        formItem = CheckIn(serviceList: const <Service>[]),
         serviceList = const <Service>[],
         serviceScopeList = const <ServiceScope>[],
         serviceGroupList = const <ServiceGroup>[],
@@ -29,6 +32,7 @@ class CheckInState {
 
   CheckInState copyWith({
     CheckIn item,
+    CheckIn formItem,
     List<ServiceScope> serviceScopeList,
     List<ServiceGroup> serviceGroupList,
     List<Service> serviceList,
@@ -37,6 +41,7 @@ class CheckInState {
   }) {
     return CheckInState(
       item: item ?? this.item,
+      formItem: formItem ?? this.formItem,
       serviceScopeList: serviceScopeList ?? this.serviceScopeList,
       serviceGroupList: serviceGroupList ?? this.serviceGroupList,
       serviceList: serviceList ?? this.serviceList,
@@ -50,6 +55,7 @@ class CheckInState {
       identical(this, other) ||
       other is CheckInState &&
           this.item == other.item &&
+          this.formItem == other.formItem &&
           this.serviceScopeList == other.serviceScopeList &&
           this.serviceGroupList == other.serviceGroupList &&
           this.serviceList == other.serviceList &&
@@ -59,6 +65,7 @@ class CheckInState {
   @override
   int get hashCode =>
       this.item.hashCode ^
+      this.formItem.hashCode ^
       this.serviceScopeList.hashCode ^
       this.serviceGroupList.hashCode ^
       this.serviceList.hashCode ^

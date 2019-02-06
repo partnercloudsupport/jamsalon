@@ -42,6 +42,7 @@ dependencies:
   firestore_helpers: ^2.0.7
   # Widgets
   image_picker: ^0.4.10
+  custom_radio: ^0.1.2
   # Styles
   cupertino_icons: ^0.1.2
   # Utitlities

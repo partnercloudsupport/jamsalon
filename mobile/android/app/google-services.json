@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "56249006857-a32tkc7a4hri2vlndoaa5j00oblu5hm6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jamstation.jamsalon",
+            "certificate_hash": "191043aa00a402045fcafd4d842329a4e561247d"
+          }
+        },
+        {
           "client_id": "56249006857-e73rlqv3qhp7ebtk5a0p3j486uv7kp9g.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56249006857-e73rlqv3qhp7ebtk5a0p3j486uv7kp9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
