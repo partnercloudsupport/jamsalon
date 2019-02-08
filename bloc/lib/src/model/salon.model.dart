@@ -10,6 +10,7 @@ class Salon extends Data {
   final Color color;
   final String photoPath;
   final bool isOpen;
+  final int queueLength;
 
   const Salon({
     String key,
@@ -20,6 +21,7 @@ class Salon extends Data {
     this.color = const Color.fromRGBO(70, 150, 90, 1.0),
     this.photoPath,
     this.isOpen = false,
+    this.queueLength = 0,
   }) : super(key: key);
 
   Salon.fromMap({String key, Map<String, dynamic> map})
@@ -31,6 +33,7 @@ class Salon extends Data {
         this.color = Color(int.tryParse(map['color'] ?? '0xFF666666')),
         this.photoPath = map['photoPath'] ?? 'assets/images/salon_1.jpg',
         this.isOpen = map['isOpen'] ?? false,
+        this.queueLength = map['queueLength'] ?? 0,
         super(key: key);
 
   @override
@@ -42,11 +45,21 @@ class Salon extends Data {
       'color': this.color.toString(),
       'photoPath': this.photoPath,
       'isOpen': this.isOpen,
+      'queueLength': this.queueLength,
     };
   }
 
-  Salon copyWith(
-      {key, id, name, location, geoPoint, color, photoPath, isOpen}) {
+  Salon copyWith({
+    key,
+    id,
+    name,
+    location,
+    geoPoint,
+    color,
+    photoPath,
+    isOpen,
+    queueLength,
+  }) {
     return Salon(
       key: key ?? this.key,
       id: id ?? this.id,
@@ -56,6 +69,7 @@ class Salon extends Data {
       color: color ?? this.color,
       photoPath: photoPath ?? this.photoPath,
       isOpen: isOpen ?? this.isOpen,
+      queueLength: queueLength ?? this.queueLength,
     );
   }
 }

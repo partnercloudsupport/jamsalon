@@ -73,12 +73,13 @@ class Salon extends StatelessWidget {
                         //   builder: (context) => CheckInPage(),
                         // );
                         vm.initializeForm();
-                        showModalBottomSheet(
+                        showBottomSheet(
                           context: context,
                           builder: (context) => CheckInPage(),
-                        ).whenComplete(() =>
-                            // SystemConfig.setSystemNavigationBarColor(Color(vm.item.color.value))
-                            null);
+                        );
+                        // .whenComplete(() =>
+                        //     // SystemConfig.setSystemNavigationBarColor(Color(vm.item.color.value))
+                        //     null);
                       },
                     );
                   }),

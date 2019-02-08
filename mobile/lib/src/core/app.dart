@@ -29,8 +29,11 @@ class App {
     ///
     /// [TESTING ONLY] Add Delay
     ///
-    await Future.delayed(
-        Duration(seconds: 2), () => print('[Test] Delaying 2 seconds'));
+    // await Future.delayed(
+    //   Duration(seconds: FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING),
+    //   () => print(
+    //       '[Test] Delaying ${FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING} seconds'),
+    // );
 
     ///
     /// Prepare API from Services

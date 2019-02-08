@@ -8,51 +8,48 @@ class ServiceListFilter extends StatelessWidget {
     print('[CheckIn] -BUILDING- ServiceListFilter');
     return StoreConnectors.serviceListFilter(
       builder: (vm) => Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 20.0,
-            ),
-            height: 120.0,
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              // color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(4.0),
             ),
-            child: ListView(
+            child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
-              children: <Widget>[
-                buildRadioButton(
-                  text: 'hair',
-                  value: 'hair',
-                  selectedValue: vm.filter.group?.scopeKey,
-                  onChanged: vm.filterByScope,
-                ),
-                buildRadioButton(
-                  text: 'face',
-                  value: 'face',
-                  selectedValue: vm.filter.group?.scopeKey,
-                  onChanged: vm.filterByScope,
-                ),
-                buildRadioButton(
-                  text: 'body',
-                  value: 'body',
-                  selectedValue: vm.filter.group?.scopeKey,
-                  onChanged: vm.filterByScope,
-                ),
-                buildRadioButton(
-                  text: 'whole',
-                  value: 'whole',
-                  selectedValue: vm.filter.group?.scopeKey,
-                  onChanged: vm.filterByScope,
-                ),
-                buildRadioButton(
-                  text: 'all',
-                  value: 'all',
-                  selectedValue: vm.filter.group?.scopeKey ?? 'all',
-                  onChanged: vm.filterByScope,
-                ),
-              ],
+              child: Row(
+                children: <Widget>[
+                  buildRadioButton(
+                    text: 'hair',
+                    value: 'hair',
+                    selectedValue: vm.filter.group?.scopeKey,
+                    onChanged: vm.filterByScope,
+                  ),
+                  buildRadioButton(
+                    text: 'face',
+                    value: 'face',
+                    selectedValue: vm.filter.group?.scopeKey,
+                    onChanged: vm.filterByScope,
+                  ),
+                  buildRadioButton(
+                    text: 'body',
+                    value: 'body',
+                    selectedValue: vm.filter.group?.scopeKey,
+                    onChanged: vm.filterByScope,
+                  ),
+                  buildRadioButton(
+                    text: 'whole',
+                    value: 'whole',
+                    selectedValue: vm.filter.group?.scopeKey,
+                    onChanged: vm.filterByScope,
+                  ),
+                  buildRadioButton(
+                    text: 'all',
+                    value: 'all',
+                    selectedValue: vm.filter.group?.scopeKey ?? 'all',
+                    onChanged: vm.filterByScope,
+                  ),
+                ],
+              ),
             ),
           ),
     );

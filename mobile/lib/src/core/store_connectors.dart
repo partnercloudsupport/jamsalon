@@ -79,6 +79,14 @@ class StoreConnectors {
         },
       );
 
+  static StoreConnector<AppState, SalonQueueViewModel> salonQueue({
+    @required Function(SalonQueueViewModel vm) builder,
+  }) =>
+      StoreConnector(
+        converter: (store) => SalonQueueViewModel.fromStore(store),
+        builder: (context, vm) => builder(vm),
+      );
+
   static StoreConnector<AppState, SalonViewModel> salon({
     @required Function(SalonViewModel vm) builder,
   }) =>

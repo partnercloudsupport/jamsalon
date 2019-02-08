@@ -17,12 +17,16 @@ class ServiceList extends StatelessWidget {
                     vm.list[i].isFirstItem
                         ? ServiceListGroupHeader(text: vm.list[i].group?.name)
                         : Container(color: Colors.red),
-                    CheckboxListTile(
+                    ListTile(
                       title: Text(vm.list[i].name),
-                      onChanged: (selected) =>
-                          vm.setSelection(vm.list[i], selected),
-                      value: vm.isSelected(vm.list[i]),
+                      leading: Icon(Icons.info_outline),
+                      trailing: Checkbox(
+                        onChanged: (selected) =>
+                            vm.setSelection(vm.list[i], selected),
+                        value: vm.isSelected(vm.list[i]),
+                      ),
                     ),
+                    // Divider(),
                   ],
                 ),
           ),

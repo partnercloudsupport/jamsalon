@@ -14,12 +14,14 @@ class ServiceListGroupHeader extends StatelessWidget {
           vertical: 5.0,
         ),
         decoration: BoxDecoration(
-          color: Theme.of(context).buttonColor,
+          // color: Theme.of(context).buttonColor,
+          color: Colors.black87,
           borderRadius: BorderRadius.circular(4.0),
         ),
         child: Text(
           this.text.toUpperCase(),
-          style: Theme.of(context).textTheme.caption,
+          style:
+              Theme.of(context).textTheme.caption.copyWith(color: Colors.white),
         ),
       ),
     );

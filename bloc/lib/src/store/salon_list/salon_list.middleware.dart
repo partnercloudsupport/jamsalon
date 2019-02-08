@@ -30,15 +30,18 @@ class SalonListMiddleware {
         .map((list) => SearchSalonsSuccessAction(list: list));
   }
 
-  Stream<void> _selectSalonEpic(
+  Stream<SelectSalonSuccessAction> _selectSalonEpic(
     Stream<SelectSalonAction> action,
     EpicStore<AppState> store,
   ) {
     return Observable(action)
-        .map((action) => this._api.databaseService.resolvePaths(
-              Tables.salon.name,
-              action.item.key,
-            ))
-        .doOnData((_) => print(Tables.service.resolvedPath));
+        .switchMap((action) =>
+            this._api.databaseService.get(Tables.salon, key: action.item.key))
+        .map((item) {
+          this._api.databaseService.resolvePaths(Tables.salon.name, item.key);
+          return item;
+        })
+        .map((item) => SelectSalonSuccessAction(item: item))
+        .doOnData((item) => print(Tables.service.resolvedPath));
   }
 }

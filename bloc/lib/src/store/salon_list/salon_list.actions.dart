@@ -21,3 +21,9 @@ class SelectSalonAction {
 
   const SelectSalonAction({@required this.item});
 }
+
+class SelectSalonSuccessAction {
+  final Salon item;
+
+  const SelectSalonSuccessAction({@required this.item});
+}

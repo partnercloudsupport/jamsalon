@@ -28,6 +28,7 @@ export 'salon_list_search_bar.view_model.dart';
 ///
 export 'salon.view_model.dart';
 export 'salon_page.view_model.dart';
+export 'salon_queue.view_model.dart';
 export 'show_check_in_page_button.view_model.dart';
 
 ///

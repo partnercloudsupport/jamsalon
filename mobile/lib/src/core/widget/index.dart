@@ -1,1 +1,1 @@
-export 'material_app.view.dart';
+export 'my_material_app.view.dart';

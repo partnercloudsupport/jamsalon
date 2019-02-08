@@ -1,7 +1,7 @@
 import 'package:redux/redux.dart';
 
 import '../model/index.dart';
-import '../store/app/index.dart';
+import '../store/index.dart';
 
 class SalonViewModel {
   final Salon item;
