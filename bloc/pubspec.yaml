@@ -1,4 +1,4 @@
-name: jamsalon_bloc
+name: bloc
 description: Business Logic Component for Jamsalon
 version: 1.0.0+1
 
@@ -8,11 +8,7 @@ environment:
 dependencies:
   # Dart Packages
   meta: ^1.1.6
-  # Stream Framework Packages
-  rxdart: ^0.18.0
-  # State Management Packages
-  redux: ^3.0.0
-  redux_epics: ^0.10.2
+
   # Jam Packages
   jam_dart_models:
     path: ../../../jam_library/dart/models
@@ -20,5 +16,12 @@ dependencies:
     path: ../../../jam_library/dart/interfaces
   jam_dart_utilities:
     path: ../../../jam_library/dart/utilities
+
+  # Stream Framework Packages
+  rxdart: ^0.18.0
+
+  # State Management Packages
+  redux: ^3.0.0
+  redux_epics: ^0.10.2
 
 dev_dependencies:

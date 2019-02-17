@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'info_setting_tile.widget.dart';
 import 'setting_group.widget.dart';
 import 'text_setting_tile.widget.dart';

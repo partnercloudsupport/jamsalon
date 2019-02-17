@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class CheckInExpansionList extends StatefulWidget {
   @override

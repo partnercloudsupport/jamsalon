@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import '../../../jamsalon_bloc.dart';
-import '../../model/index.dart';
+import '../../bloc.dart';
+import '../../model/_.index.dart';
 
 class CheckInService {
   static List<Service> fillServiceList({
@@ -53,13 +53,13 @@ class CheckInService {
   }
 
   static CheckIn refreshFormItem(CheckIn formItem) {
-    final selectedSalon = MyAppBloc.store.state.salonState.selectedItem;
+    final selectedSalon = Bloc.store.state.salonState.selectedItem;
 
     if (selectedSalon?.key == formItem?.salon?.key) {
       return formItem;
     } else {
       return CheckIn(
-        user: MyAppBloc.store.state.authState.user,
+        user: Bloc.store.state.authState.user,
         salon: selectedSalon,
         serviceList: const <Service>[],
       );

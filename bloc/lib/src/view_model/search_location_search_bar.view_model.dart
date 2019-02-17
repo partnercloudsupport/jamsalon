@@ -1,6 +1,4 @@
-import 'package:redux/redux.dart';
-
-import '../store/index.dart';
+import '_.imports.dart';
 
 class SearchLocationSearchBarViewModel {
   final String searchKeyword;
@@ -8,6 +6,6 @@ class SearchLocationSearchBarViewModel {
 
   SearchLocationSearchBarViewModel.fromStore(Store<AppState> store)
       : searchKeyword = store.state.searchLocationState.searchKeyword,
-        getPredictionList =
-            ((String keyword) => store.dispatch(FetchPredictionListAction(keyword)));
+        getPredictionList = ((String keyword) =>
+            store.dispatch(FetchPredictionListAction(keyword)));
 }

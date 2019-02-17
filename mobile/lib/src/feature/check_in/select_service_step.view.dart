@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'service_list_filter.view.dart';
 import 'service_list.view.dart';
 

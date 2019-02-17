@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import '../../shared/build_bottom_navigation_bar.function.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
+
 import 'build_app_bar.function.dart';
 import 'check_in_list.widget.dart';
 

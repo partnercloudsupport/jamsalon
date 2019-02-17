@@ -1,8 +1,4 @@
-import 'package:redux/redux.dart';
-import 'package:jam_dart_models/models.dart';
-
-import '../config/ui.config.dart';
-import '../store/app/index.dart';
+import '_.imports.dart';
 
 class SalonListSearchBarViewModel {
   final Location selectedLocation;

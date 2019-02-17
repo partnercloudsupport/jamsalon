@@ -1,10 +1,4 @@
-import 'package:jam_dart_interfaces/interfaces.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:redux_epics/redux_epics.dart';
-
-import '../../bloc_api.dart';
-import '../../model/index.dart';
-import '../../store/index.dart';
+import 'package:bloc/src/store/_for_epic.index.dart';
 
 class AuthMiddleware {
   final DatabaseInterface _db;

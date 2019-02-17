@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class SearchBar extends StatelessWidget {
   @override
@@ -13,7 +11,8 @@ class SearchBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               color: Color.fromRGBO(68, 68, 68, 0.1),
-              onPressed: () => Navigator.of(context).pushNamed('/search_location'),
+              onPressed: () =>
+                  Navigator.of(context).pushNamed('/search_location'),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

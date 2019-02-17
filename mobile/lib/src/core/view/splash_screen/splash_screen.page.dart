@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/config/ui.config.dart';
+import '../../config/ui.config.dart';
 import 'animated_app_logo.widget.dart';
 
 class SplashScreen extends StatefulWidget {

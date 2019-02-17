@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
+
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key key}) : super(key: key);
@@ -18,7 +19,7 @@ class Profile extends StatelessWidget {
             (index) {
               return Container(
                 padding: EdgeInsets.only(top: 20.0),
-                child: JamCard(
+                child: jam.Card(
                   title: 'Profile $index',
                   child: Text('description here'),
                 ),

@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../feature/auth/index.dart';
-import '../../feature/profile/index.dart';
-import '../../feature/settings/index.dart';
-import '../../feature/check_in/index.dart';
-import '../../feature/history/index.dart';
-import '../../feature/salon/index.dart';
-import '../../feature/salon_list/index.dart';
-import '../../feature/search_location/index.dart';
+import 'package:jamsalon/src/feature/_.index.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 

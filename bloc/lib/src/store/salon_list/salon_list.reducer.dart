@@ -1,5 +1,5 @@
-import 'salon_list.state.dart';
 import 'salon_list.actions.dart';
+import 'salon_list.state.dart';
 
 SalonListState salonListReducer(SalonListState state, dynamic action) {
   if (action is SearchSalonsSuccessAction) {

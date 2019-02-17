@@ -1,5 +1,3 @@
-library config;
-
 export 'key.config.dart';
 export 'routes.config.dart';
 export 'theme.config.dart';

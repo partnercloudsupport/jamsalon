@@ -1,17 +1,12 @@
-import 'package:jam_dart_models/models.dart';
-import 'package:jamsalon_bloc/src/config/index.dart';
-import 'package:redux_epics/redux_epics.dart';
-import 'package:rxdart/rxdart.dart';
-
-import '../../bloc_api.dart';
-import '../app/index.dart';
-import '../salon_list/salon_list.actions.dart';
-import 'search_location.actions.dart';
+import 'package:bloc/src/store/_for_epic.index.dart';
 
 class SearchLocationMiddleware {
-  final BlocAPI _api;
+  final LocationInterface _locationService;
+  final PlaceInterface _placeService;
 
-  SearchLocationMiddleware(this._api);
+  SearchLocationMiddleware(BlocAPI api)
+      : _locationService = api.locationService,
+        _placeService = api.placeService;
 
   Epic<AppState> get epics => combineEpics<AppState>([
         TypedEpic(this._fetchCurrentLocationEpic),
@@ -26,7 +21,7 @@ class SearchLocationMiddleware {
     EpicStore<AppState> store,
   ) {
     return Observable(action)
-        .switchMap((action) => this._api.locationService.getCurrentLocation())
+        .switchMap((action) => _locationService.getCurrentLocation())
         .map((location) => FetchCurrentLocationSuccessAction(location));
   }
 
@@ -38,12 +33,14 @@ class SearchLocationMiddleware {
         .map((action) => [
               Location(
                 name: 'New Perungulathur',
-                address: 'SSM Nagar,SSM நகர், Alappakam, New Perungalathur, Chennai.',
+                address:
+                    'SSM Nagar,SSM நகர், Alappakam, New Perungalathur, Chennai.',
                 geoPoint: GeoPoint(12.8918714, 80.1087996),
               ),
               Location(
                 name: 'Vadapalani',
-                address: 'Sampath Marriage Hall, Pole Star, 1st Main Road, Chennai.',
+                address:
+                    'Sampath Marriage Hall, Pole Star, 1st Main Road, Chennai.',
                 geoPoint: GeoPoint(1.0, 1.0),
               ),
               Location(
@@ -69,12 +66,14 @@ class SearchLocationMiddleware {
         .map((action) => [
               Location(
                 name: 'Home',
-                address: 'SSM Nagar,SSM நகர், Alappakam, New Perungalathur, Chennai.',
+                address:
+                    'SSM Nagar,SSM நகர், Alappakam, New Perungalathur, Chennai.',
                 geoPoint: GeoPoint(12.8918714, 80.1087996),
               ),
               Location(
                 name: 'Other',
-                address: 'Nungambakkam Railway Station, Sowrashtra Nagar, Choolaimedu, Chennai.',
+                address:
+                    'Nungambakkam Railway Station, Sowrashtra Nagar, Choolaimedu, Chennai.',
                 geoPoint: GeoPoint(13.0663523, 80.2285082),
               ),
               Location(
@@ -98,7 +97,7 @@ class SearchLocationMiddleware {
   ) {
     return Observable(action)
         .where((action) => action.keyword.length >= 3)
-        .switchMap((action) => this._api.placeService.searchByText(
+        .switchMap((action) => _placeService.searchByText(
               action.keyword,
               latitude: MapConfig.BIASED_LOCATION_LATITUDE,
               longitude: MapConfig.BIASED_LOCATION_LONGITUDE,
@@ -111,6 +110,7 @@ class SearchLocationMiddleware {
     Stream<FetchCurrentLocationSuccessAction> action,
     EpicStore<AppState> store,
   ) {
-    return Observable(action).map((action) => SearchSalonsAction(action.location.geoPoint));
+    return Observable(action)
+        .map((action) => SearchSalonsAction(action.location.geoPoint));
   }
 }

@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
-import 'package:jamsalon/src/core/store_connectors.dart';
-import 'package:jamsalon/src/shared/widget/index.dart';
-import '../../shared/build_bottom_navigation_bar.function.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
+
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -31,11 +29,11 @@ class HomePage extends StatelessWidget {
               background: Container(
                 padding: EdgeInsets.only(top: 80.0),
                 height: 200.0,
-                child: JamBubbleDecoration(
+                child: jam.BubbleDecoration(
                   child: Container(
                     alignment: Alignment.topCenter,
                     child: StoreConnectors.auth(
-                      builder: (vm) => JamProfilePhoto(
+                      builder: (vm) => jam.ProfilePhoto(
                             photoUrl: vm.user.profile.photoUrl,
                             uploadPhoto: null,
                             removePhoto: null,
@@ -59,17 +57,10 @@ class HomePage extends StatelessWidget {
                       ),
                 ),
                 SizedBox(height: 50.0),
-                // JamProfileStats(
-                //   children: [
-                //     JamProfileStatItem(label: 'LAST VISIT', value: '10'),
-                //     JamProfileStatItem(label: 'FAVORITES', value: '2'),
-                //     JamProfileStatItem(label: 'RATING', value: '4'),
-                //   ],
-                // ),
                 Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  child: JamCard(
+                  child: jam.Card(
                       title: 'User',
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,7 +109,7 @@ class HomePage extends StatelessWidget {
                 Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  child: JamCard(
+                  child: jam.Card(
                     title: 'Photos',
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

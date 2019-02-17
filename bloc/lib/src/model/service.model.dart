@@ -1,5 +1,6 @@
-import 'package:jam_dart_models/models.dart';
 import 'package:meta/meta.dart';
+
+import 'package:jam_dart_models/models.dart';
 
 import 'body_feature.model.dart';
 import 'service_group.model.dart';

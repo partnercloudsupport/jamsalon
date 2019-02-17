@@ -1,8 +1,6 @@
 import 'package:jam_dart_utilities/list_utils.dart' as list_utils;
-import 'package:redux/redux.dart';
 
-import '../model/index.dart';
-import '../store/index.dart';
+import '_.imports.dart';
 
 class ServiceListViewModel {
   final List<Service> list;

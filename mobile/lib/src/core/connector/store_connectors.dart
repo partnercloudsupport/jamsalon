@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:jamsalon_bloc/jamsalon_bloc.dart';
 
-export 'package:jamsalon_bloc/src/config/ui.config.dart';
+import 'package:bloc/bloc.dart';
 
 class StoreConnectors {
   ///

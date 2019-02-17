@@ -1,15 +1,9 @@
-import 'package:redux_epics/redux_epics.dart';
-import 'package:rxdart/rxdart.dart';
-
-import '../../model/index.dart';
-import '../../bloc_api.dart';
-import '../app/index.dart';
-import '../salon_list/salon_list.actions.dart';
+import 'package:bloc/src/store/_for_epic.index.dart';
 
 class SalonListMiddleware {
-  final BlocAPI _api;
+  final DatabaseInterface _db;
 
-  SalonListMiddleware(this._api);
+  SalonListMiddleware(BlocAPI api) : _db = api.databaseService;
 
   Epic<AppState> get epics => combineEpics<AppState>([
         TypedEpic(_searchSalonsEpic),
@@ -21,7 +15,7 @@ class SalonListMiddleware {
     EpicStore<AppState> store,
   ) {
     return Observable(action)
-        .switchMap((action) => this._api.databaseService.findAround(
+        .switchMap((action) => _db.findAround(
               Tables.salon,
               center: action.geoPoint,
               radiusInKm: action.radiusInKm,
@@ -35,13 +29,17 @@ class SalonListMiddleware {
     EpicStore<AppState> store,
   ) {
     return Observable(action)
-        .switchMap((action) =>
-            this._api.databaseService.get(Tables.salon, key: action.item.key))
+        .switchMap((action) => _db.get(Tables.salon, key: action.item.key))
+        .doOnData((item) {
+          print(item.key);
+        })
         .map((item) {
-          this._api.databaseService.resolvePaths(Tables.salon.name, item.key);
+          _db.resolvePaths(Tables.salon.name, item.key);
           return item;
         })
         .map((item) => SelectSalonSuccessAction(item: item))
-        .doOnData((item) => print(Tables.service.resolvedPath));
+        .doOnData((item) {
+          print(Tables.service.resolvedPath);
+        });
   }
 }

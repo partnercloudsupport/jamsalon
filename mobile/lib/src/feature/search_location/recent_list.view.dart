@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
 
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_location_card.widget.dart';
 import 'search_location_list_item.view.dart';
 
@@ -11,7 +10,7 @@ class RecentList extends StatelessWidget {
     return StoreConnectors.recentList(
       builder: (vm) => SearchLocationCard(
             title: UiConfig.RECENT_LIST_CAPTION,
-            child: JamExpandableColumn(
+            child: jam.ExpandableColumn(
               initialCount: 3,
               viewMoreText: UiConfig.VIEW_MORE_BUTTON_TEXT,
               children: vm.list

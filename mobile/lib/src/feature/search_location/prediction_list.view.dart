@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_location_card.widget.dart';
 import 'search_location_list_item.view.dart';
 

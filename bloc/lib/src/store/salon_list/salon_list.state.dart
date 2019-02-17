@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
-import 'package:jam_dart_models/models.dart';
-import '../../model/index.dart';
+
+import '../../model/_.index.dart';
 
 @immutable
 class SalonListState {
@@ -41,5 +41,7 @@ class SalonListState {
 
   @override
   int get hashCode =>
-      this.list.hashCode ^ this.selectedItem.hashCode ^ this.selectedLocation.hashCode;
+      this.list.hashCode ^
+      this.selectedItem.hashCode ^
+      this.selectedLocation.hashCode;
 }

@@ -1,7 +1,4 @@
-import 'package:redux/redux.dart';
-
-import '../model/index.dart';
-import '../store/index.dart';
+import '_.imports.dart';
 
 class RegisterPageViewModel {
   final void Function(String username, String password) register;

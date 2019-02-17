@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:jamsalon_bloc/jamsalon_bloc.dart';
+
+import 'package:bloc/models.dart' as model show CheckIn;
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class CheckInListItem extends StatelessWidget {
-  final CheckIn checkIn;
+  final model.CheckIn checkIn;
   CheckInListItem({this.checkIn});
 
   @override

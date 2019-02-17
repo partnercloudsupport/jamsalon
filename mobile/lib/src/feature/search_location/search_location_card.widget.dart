@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_location_titled_container.widget.dart';
 
 class SearchLocationCard extends StatelessWidget {

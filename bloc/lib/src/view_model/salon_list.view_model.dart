@@ -1,10 +1,8 @@
-import 'package:redux/redux.dart';
-
-import '../model/index.dart';
-import '../store/app/index.dart';
+import '_.imports.dart';
 
 class SalonListViewModel {
   final List<Salon> list;
 
-  SalonListViewModel.fromStore(Store<AppState> store) : list = store.state.salonState.list;
+  SalonListViewModel.fromStore(Store<AppState> store)
+      : list = store.state.salonState.list;
 }

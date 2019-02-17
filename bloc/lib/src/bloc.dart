@@ -1,25 +1,21 @@
-import 'package:meta/meta.dart';
+import 'dart:async';
+
 import 'package:redux/redux.dart';
 
-import 'src/bloc_api.dart';
-import 'src/store/index.dart';
-import 'src/model/index.dart';
+import 'meta/_.index.dart';
+import 'store/_app_store.index.dart';
+import 'store/auth/auth.actions.dart';
+import 'bloc_api.dart';
 
-export 'src/config/ui.config.dart';
-export 'src/model/index.dart';
-export 'src/bloc_api.dart';
-export 'src/store/index.dart';
-export 'src/view_model/index.dart';
-
-class MyAppBloc {
+class Bloc {
   static bool _isInitialized = false;
   static Store<AppState> store;
 
-  static Future<bool> initialize({@required BlocAPI api}) async {
+  static Future<bool> initialize(BlocAPI api) async {
     ///
     /// Return if already initialized
     ///
-    if (MyAppBloc._isInitialized) return MyAppBloc._isInitialized;
+    if (Bloc._isInitialized) return Bloc._isInitialized;
 
     ///
     /// Initialize [api.databaseService]
@@ -40,15 +36,15 @@ class MyAppBloc {
     ///
     /// Create Store
     ///
-    MyAppBloc.store = AppStore.instance(api);
+    Bloc.store = AppStore.instance(api);
     print('[Bloc] Store Initialized');
-    MyAppBloc.store.dispatch(InitializeAuthAction());
+    Bloc.store.dispatch(InitializeAuthAction());
     await store.onChange.map((state) => state.authState.isInitialized).first;
 
     ///
     /// Return
     ///
-    MyAppBloc._isInitialized = true;
-    return MyAppBloc._isInitialized;
+    Bloc._isInitialized = true;
+    return Bloc._isInitialized;
   }
 }

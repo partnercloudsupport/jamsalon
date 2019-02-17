@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_bar.view.dart';
 import 'search_location_container.view.dart';
 

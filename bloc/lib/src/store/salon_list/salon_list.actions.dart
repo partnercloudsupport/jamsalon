@@ -1,7 +1,7 @@
 import 'package:jam_dart_models/models.dart';
 import 'package:meta/meta.dart';
 
-import '../../model/index.dart';
+import '../../model/_.index.dart';
 
 class SearchSalonsAction {
   final GeoPoint geoPoint;

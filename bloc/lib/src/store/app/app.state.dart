@@ -1,9 +1,6 @@
 import 'package:meta/meta.dart';
 
-import '../auth/index.dart';
-import '../salon_list/index.dart';
-import '../search_location/index.dart';
-import '../check_in/index.dart';
+import '../_feature_store.index.dart';
 
 @immutable
 class AppState {

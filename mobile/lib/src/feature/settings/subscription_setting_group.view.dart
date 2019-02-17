@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'setting_group.widget.dart';
 
 class SubscriptionSettingGroup extends StatelessWidget {

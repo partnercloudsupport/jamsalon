@@ -1,10 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+
 import 'package:jam_dart_services/services.dart';
 import 'package:jam_flutter_services/services.dart';
-import 'package:jamsalon_bloc/jamsalon_bloc.dart';
-import 'package:redux/redux.dart';
 
-import 'config/index.dart';
+import 'package:bloc/bloc.dart';
+
+import 'config/_.index.dart';
 
 class App {
   static const String title = 'Jamsalon';
@@ -13,7 +16,7 @@ class App {
 
   static final Map<String, WidgetBuilder> routes = appRoutes;
 
-  static Store<AppState> get store => MyAppBloc.store;
+  static get store => Bloc.store;
 
   static Future<bool> initialize() async {
     print(
@@ -29,11 +32,11 @@ class App {
     ///
     /// [TESTING ONLY] Add Delay
     ///
-    // await Future.delayed(
-    //   Duration(seconds: FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING),
-    //   () => print(
-    //       '[Test] Delaying ${FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING} seconds'),
-    // );
+    await Future.delayed(
+      Duration(seconds: FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING),
+      () => print(
+          '[Test] Delaying ${FlutterUiConfig.APP_LOAD_DELAY_FOR_TESTING} seconds'),
+    );
 
     ///
     /// Prepare API from Services
@@ -48,7 +51,7 @@ class App {
     ///
     /// Initialize BLoC using API
     ///
-    await MyAppBloc.initialize(api: api);
+    await Bloc.initialize(api);
     print('[App] Bloc initialized');
 
     ///

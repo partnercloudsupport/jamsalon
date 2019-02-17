@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:jamsalon_bloc/jamsalon_bloc.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class KeywordTooShortMessage extends StatelessWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
 
 class MultilineAssistiveText extends StatelessWidget {
   final List<Text> textWidgets;
@@ -45,7 +45,7 @@ class MultilineAssistiveText extends StatelessWidget {
                     Expanded(child: textWidget),
                   ],
                 ),
-                JamConditionallyRenderContainer(
+                jam.ConditionallyRenderContainer(
                   condition: !isLastItem,
                   child: this.showLines
                       ? this.buildLine()

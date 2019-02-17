@@ -7,4 +7,3 @@ export 'salon/index.dart';
 export 'salon_list/index.dart';
 export 'search_location/index.dart';
 export 'settings/index.dart';
-export 'splash_screen/index.dart';

@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
+
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_location.widget.dart';
 
 class SearchOptions extends StatelessWidget {
@@ -20,7 +21,7 @@ class SearchOptions extends StatelessWidget {
               children: <Widget>[
                 Text('Search', style: Theme.of(context).textTheme.display1),
                 SizedBox(height: 20.0),
-                JamLine(length: 60.0, thickness: 0.5),
+                jam.Line(length: 60.0, thickness: 0.5),
                 SizedBox(height: 30.0),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),

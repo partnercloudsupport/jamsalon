@@ -1,5 +1,5 @@
-import 'auth.state.dart';
 import 'auth.actions.dart';
+import 'auth.state.dart';
 
 AuthState authReducer(AuthState state, dynamic action) {
   if (action is InitializeAuthAction) {

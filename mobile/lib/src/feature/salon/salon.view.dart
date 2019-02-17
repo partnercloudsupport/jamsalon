@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
-import '../check_in/check_in.page.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class Salon extends StatelessWidget {
   @override
@@ -67,19 +64,8 @@ class Salon extends StatelessWidget {
                             .copyWith(color: Colors.white),
                       ),
                       onPressed: () {
-                        // SystemConfig.setSystemNavigationBarColor(Colors.transparent);
-                        // showBottomSheet(
-                        //   context: context,
-                        //   builder: (context) => CheckInPage(),
-                        // );
                         vm.initializeForm();
-                        showBottomSheet(
-                          context: context,
-                          builder: (context) => CheckInPage(),
-                        );
-                        // .whenComplete(() =>
-                        //     // SystemConfig.setSystemNavigationBarColor(Color(vm.item.color.value))
-                        //     null);
+                        Navigator.of(context).pushNamed('/check_in');
                       },
                     );
                   }),

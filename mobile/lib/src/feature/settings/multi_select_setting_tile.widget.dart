@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class MultiSelectSettingTile<T> extends StatelessWidget {
   final String title;

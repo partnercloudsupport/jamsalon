@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
-import '../../shared/widget/index.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class SignInPage extends StatefulWidget {
   @override

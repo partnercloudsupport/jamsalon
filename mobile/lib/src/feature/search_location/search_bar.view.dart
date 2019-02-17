@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({Key key}) : super(key: key);

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/config/ui.config.dart';
-import '../../core/store_connectors.dart';
-import '../../shared/widget/index.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 ///
 /// A button to fetch user's current location.

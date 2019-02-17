@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../shared/build_bottom_navigation_bar.function.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'search_bar.view.dart';
 import 'salon_list.view.dart';
 

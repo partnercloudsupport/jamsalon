@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class SelectSettingTile<T> extends StatelessWidget {
   final String title;
@@ -49,27 +48,27 @@ class SelectSettingTile<T> extends StatelessWidget {
     );
   }
 
-  BottomSheet _buildBottomSheet(BuildContext context) {
-    return BottomSheet(
-      onClosing: () {},
-      builder: (context) {
-        return SingleChildScrollView(
-          child: Container(
-            color: Colors.white,
-            child: Column(
-              children: this
-                  .selectionList
-                  .map((item) => FlatButton(
-                        onPressed: () => Navigator.of(context).pop(item),
-                        child: this.itemBuilder(item),
-                      ))
-                  .toList(),
-            ),
-          ),
-        );
-      },
-    );
-  }
+  // BottomSheet _buildBottomSheet(BuildContext context) {
+  //   return BottomSheet(
+  //     onClosing: () {},
+  //     builder: (context) {
+  //       return SingleChildScrollView(
+  //         child: Container(
+  //           color: Colors.white,
+  //           child: Column(
+  //             children: this
+  //                 .selectionList
+  //                 .map((item) => FlatButton(
+  //                       onPressed: () => Navigator.of(context).pop(item),
+  //                       child: this.itemBuilder(item),
+  //                     ))
+  //                 .toList(),
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   CupertinoActionSheet _buildIosDialog(BuildContext context) {
     return CupertinoActionSheet(
@@ -87,15 +86,15 @@ class SelectSettingTile<T> extends StatelessWidget {
     );
   }
 
-  SimpleDialog _buildDialog(BuildContext context) {
-    return SimpleDialog(
-      children: this
-          .selectionList
-          .map((item) => GestureDetector(
-                onTap: () => Navigator.of(context).pop(item),
-                child: this.itemBuilder(item),
-              ))
-          .toList(),
-    );
-  }
+  // SimpleDialog _buildDialog(BuildContext context) {
+  //   return SimpleDialog(
+  //     children: this
+  //         .selectionList
+  //         .map((item) => GestureDetector(
+  //               onTap: () => Navigator.of(context).pop(item),
+  //               child: this.itemBuilder(item),
+  //             ))
+  //         .toList(),
+  //   );
+  // }
 }

@@ -1,25 +1,29 @@
 import 'package:jam_dart_interfaces/interfaces.dart';
-import 'package:jam_dart_models/models.dart';
 
-import 'index.dart';
+import '../model/_.index.dart';
 
 class Tables {
   ///
-  /// DatabaseService reference
+  /// Static Constructor
   ///
-  static DatabaseInterface _databaseService;
+  static construct(DatabaseInterface databaseService) {
+    _db = databaseService;
+  }
+
+  ///
+  /// Table list
+  ///
+  static DatabaseInterface _db;
 
   ///
   /// Getters for individual tables
   ///
-  static Table<CheckIn> get checkIn => _databaseService.tables['CheckIn'];
-  static Table<Salon> get salon => _databaseService.tables['Salon'];
-  static Table<Service> get service => _databaseService.tables['Service'];
-  static Table<ServiceGroup> get serviceGroup =>
-      _databaseService.tables['ServiceGroup'];
-  static Table<ServiceScope> get serviceScope =>
-      _databaseService.tables['ServiceScope'];
-  static Table<User> get user => _databaseService.tables['User'];
+  static Table<CheckIn> get checkIn => _db.tables['CheckIn'];
+  static Table<Salon> get salon => _db.tables['Salon'];
+  static Table<Service> get service => _db.tables['Service'];
+  static Table<ServiceGroup> get serviceGroup => _db.tables['ServiceGroup'];
+  static Table<ServiceScope> get serviceScope => _db.tables['ServiceScope'];
+  static Table<User> get user => _db.tables['User'];
 
   ///
   /// Table Creators
@@ -39,11 +43,4 @@ class Tables {
     'User': (table) => Table<User>.from(table).copyWith(
         modelCreator: ({key, map}) => User.fromMap(key: key, map: map)),
   };
-
-  ///
-  /// Static Constructor
-  ///
-  static construct(DatabaseInterface databaseService) {
-    _databaseService = databaseService;
-  }
 }

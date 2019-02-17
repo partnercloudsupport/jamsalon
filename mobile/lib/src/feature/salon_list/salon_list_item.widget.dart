@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart';
-import 'package:jamsalon/src/core/store_connectors.dart';
-import 'package:jamsalon_bloc/jamsalon_bloc.dart';
+import 'package:jam_flutter_widgets/widgets.dart' as jam;
+
+import 'package:bloc/models.dart' as model show Salon;
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class SalonListItem extends StatelessWidget {
-  final Salon salon;
+  final model.Salon salon;
 
   const SalonListItem({Key key, this.salon}) : super(key: key);
 
@@ -83,7 +83,7 @@ class SalonListItem extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    JamConditionallyShowContainer(
+                    jam.ConditionallyShowContainer(
                       condition: true,
                       child: Padding(
                         padding: EdgeInsets.only(top: 10.0),

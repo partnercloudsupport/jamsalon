@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:jam_flutter_widgets/widgets.dart' as jam;
 
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
 class CheckInQueue extends StatelessWidget {
   @override

@@ -1,4 +1,4 @@
-import '../../model/index.dart';
+import '../../model/_.index.dart';
 
 class InitializeAuthAction {
   const InitializeAuthAction();

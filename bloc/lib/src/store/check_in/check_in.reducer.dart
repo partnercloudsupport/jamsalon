@@ -1,7 +1,7 @@
 import 'package:jam_dart_utilities/list_utils.dart' as list_utils;
 
-import 'check_in.state.dart';
 import 'check_in.actions.dart';
+import 'check_in.state.dart';
 import 'check_in.service.dart';
 
 CheckInState checkInReducer(CheckInState state, dynamic action) {

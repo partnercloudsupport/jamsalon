@@ -1,32 +1,29 @@
-import 'package:flutter/material.dart';
-import 'package:jam_flutter_widgets/widgets.dart' as jam;
+import 'package:jamsalon/src/feature/_.imports.dart';
 
+import 'check_in.view.dart';
 import 'check_in_form_summary.view.dart';
-import 'select_service_step.view.dart';
 
 class CheckInPage extends StatelessWidget {
+  const CheckInPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    print('[CheckIn] -BUILDING- CheckInPage');
-    return jam.BottomSheet(
-      onClosing: () {},
-      shouldAddCancelButton: true,
-      title: Text('Check In'),
-      bottom: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: CheckInFormSummary(),
+    print('[Settings] -BUILDING- CheckInPage');
+    return Scaffold(
+      appBar: AppBar(
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color: Colors.black87),
+        textTheme: Theme.of(context).textTheme,
+        elevation: 0.0,
+        title: Text('Check In'),
+        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(120.0),
+          child: CheckInFormSummary(),
+        ),
       ),
-      content: SelectServiceStep(),
-      actions: <Widget>[
-        FlatButton(
-          onPressed: () {},
-          child: Text('Cancel'),
-        ),
-        FlatButton(
-          onPressed: () {},
-          child: Text('Next'),
-        ),
-      ],
+      // bottomNavigationBar: buildBottomNavigationBar(context, 1),
+      body: CheckIn(),
     );
   }
 }

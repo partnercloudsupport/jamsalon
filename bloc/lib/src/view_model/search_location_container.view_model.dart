@@ -1,6 +1,4 @@
-import 'package:redux/redux.dart';
-
-import '../store/index.dart';
+import '_.imports.dart';
 
 class SearchLocationContainerViewModel {
   final bool hasUserStartedTyping;

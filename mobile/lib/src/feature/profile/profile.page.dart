@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 
-import '../../shared/build_bottom_navigation_bar.function.dart';
 import 'profile.view.dart';
 
 class ProfilePage extends StatelessWidget {

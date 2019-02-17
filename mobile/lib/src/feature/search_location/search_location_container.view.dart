@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'initial_list.view.dart';
 import 'keyword_too_short_message.view.dart';
 import 'prediction_list.view.dart';

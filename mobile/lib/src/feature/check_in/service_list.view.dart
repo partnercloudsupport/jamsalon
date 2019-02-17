@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../core/store_connectors.dart';
+import 'package:jamsalon/src/feature/_.imports.dart';
 import 'service_list_group_header.widget.dart';
 
 class ServiceList extends StatelessWidget {
@@ -26,7 +24,6 @@ class ServiceList extends StatelessWidget {
                         value: vm.isSelected(vm.list[i]),
                       ),
                     ),
-                    // Divider(),
                   ],
                 ),
           ),
